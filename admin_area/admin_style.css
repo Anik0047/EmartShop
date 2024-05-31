@@ -1,0 +1,40 @@
+.side_menu {
+    height: 100vh;
+}
+
+.admin_brand_name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    border-bottom: 2px solid black;
+    border-radius: 10px;
+}
+
+.admin_brand_name img {
+    width: 70px;
+    height: 70px;
+}
+
+.admin_brand_name p {
+    font-size: 25px;
+    font-weight: 700;
+    margin: 10px 0 0 15px;
+}
+
+.side_menu_items {
+    margin-top: 15px;
+}
+
+.menu_border {
+    border: 0;
+    border-bottom: 2px solid black;
+    border-radius: 10px;
+}
+
+
+.user_logout {
+    margin: 10px 0 0 20px;
+}
+
+.right_side_name {}
