@@ -98,14 +98,18 @@
     <!-- --------------------   End Navbar  ------------------------ -->
 
     <!-- --------------------    Banner  ------------------------ -->
-    <section class="flex md:flex-row flex-col justify-evenly items-center mt-20">
+    <section class="flex md:flex-row flex-col justify-evenly items-center mt-10 md:my-20">
         <div class="brand_detail">
-            <h1 class="text-5xl tracking-wider leading-loose">Welcome to <span
-                    class="text-6xl italic text-orange-500">Emart
+            <h1 class="text-3xl md:text-4xl tracking-wide md:tracking-wider leading-relaxed md:leading-loose">Welcome to
+                <span class="text-4xl md:text-6xl italic text-orange-500">Emart
                     Shop</span>
             </h1>
-            <h1 class="text-5xl tracking-wider leading-loose">Your One-Stop Online Store</h1>
-            <h1 class="text-5xl tracking-wider leading-loose">The Future of Online Shopping</h1>
+            <h1 class="text-3xl md:text-4xl tracking-wide md:tracking-wider leading-relaxed md:leading-loose">Your
+                One-Stop Online Store
+            </h1>
+            <h1 class="text-3xl md:text-4xl tracking-wide md:tracking-wider leading-relaxed md:leading-loose">The Future
+                of Online
+                Shopping</h1>
         </div>
         <div class="body">
             <div class="swiper mySwiper">
@@ -120,6 +124,48 @@
         </div>
     </section>
     <!-- --------------------   End Banner  ------------------------ -->
+
+
+    <!-- --------------------   Products  ------------------------ -->
+
+    <section>
+        <div>
+            <p class="text-4xl md:ms-10 md:ps-2 border-black border-b-2 w-40 rounded-bl-lg">Products</p>
+        </div>
+        <div class="flex mx-5 ">
+            <div class="border border-black w-72 text-center">
+                <div>
+                    <p class="text-2xl bg-slate-200 py-5">Brands</p>
+                    <div>
+                        <a class="block text-xl py-3 text-xl py-3" href="">Brand 1</a>
+                        <a class="block text-xl py-3" href="">Brand 2</a>
+                        <a class="block text-xl py-3" href="">Brand 3</a>
+                        <a class="block text-xl py-3" href="">Brand 4</a>
+                        <a class="block text-xl py-3" href="">Brand 5</a>
+                        <a class="block text-xl py-3" href="">Brand 6</a>
+                        <a class="block text-xl py-3" href="">Brand 7</a>
+                    </div>
+                </div>
+                <div>
+                    <p class="text-2xl bg-slate-200 py-5">Categories</p>
+                    <div>
+                        <a class="block text-xl py-3 text-xl py-3" href="">Categories 1</a>
+                        <a class="block text-xl py-3" href="">Categories 2</a>
+                        <a class="block text-xl py-3" href="">Categories 3</a>
+                        <a class="block text-xl py-3" href="">Categories 4</a>
+                        <a class="block text-xl py-3" href="">Categories 5</a>
+                        <a class="block text-xl py-3" href="">Categories 6</a>
+                        <a class="block text-xl py-3" href="">Categories 7</a>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-3 gap-4">
+
+            </div>
+        </div>
+    </section>
+
+    <!-- --------------------   End Products  ------------------------ -->
 
 
     <!-- Swiper JS -->
