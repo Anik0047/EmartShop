@@ -67,26 +67,26 @@ body {
 }
 
 .swiper-slide:nth-child(1n) {
-
-    background-image: url('images/Adidas/DROPSET\ 2\ TRAINING\ SHOES/pic-1.avif');
+    background-color: rgb(228, 221, 221);
+    background-image: url('images/Adidas/DROPSET\ 2\ TRAINING\ SHOES/pic-1.png');
     background-size: cover;
 }
 
 .swiper-slide:nth-child(2n) {
-    /* background-color: rgb(0, 140, 255); */
+    background-color: rgb(228, 221, 221);
     background-image: url('images/Nike/Jordan\ True\ Flight/pic-1.png');
     object-fit: cover;
 }
 
 .swiper-slide:nth-child(3n) {
     background-color: rgb(228, 221, 221);
-    background-image: url('images/Louis-Vuitton/Christopher\ MM/pic-2.avif');
+    background-image: url('images/Louis-Vuitton/Christopher\ MM/pic-2.png');
     background-size: cover;
 }
 
 .swiper-slide:nth-child(4n) {
     /* background-color: rgb(211, 122, 7); */
-    background-image: url('images/Calvin-Klein/Framed-Flower-Graphic-Classic-Crewneck-T-Shirt/pic-1.webp');
+    background-image: url('images/Calvin-Klein/Framed-Flower-Graphic-Classic-Crewneck-T-Shirt/pic-1.png');
     background-size: cover;
     background-repeat: no-repeat;
 }
