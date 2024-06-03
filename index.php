@@ -1,3 +1,7 @@
+<?php
+include('database/connect.php');
+?>
+
 <!doctype html>
 <html>
 
@@ -137,19 +141,21 @@
                 <div>
                     <p class="text-2xl bg-slate-200 py-5">Brands</p>
                     <div>
-                        <a class="block text-xl py-3 text-xl py-3" href="">Brand 1</a>
-                        <a class="block text-xl py-3" href="">Brand 2</a>
-                        <a class="block text-xl py-3" href="">Brand 3</a>
-                        <a class="block text-xl py-3" href="">Brand 4</a>
-                        <a class="block text-xl py-3" href="">Brand 5</a>
-                        <a class="block text-xl py-3" href="">Brand 6</a>
-                        <a class="block text-xl py-3" href="">Brand 7</a>
+                        <?php
+                        $select_brands = "SELECT * from `brands`";
+                        $brands_result = mysqli_query($conn, $select_brands);
+                        while ($row_data = mysqli_fetch_assoc($brands_result)) {
+                            $brand_id = $row_data['brands_id'];
+                            $brand_title = $row_data['brands_title'];
+                            echo "<a class='block text-xl py-3' href='index.php?brand=$brand_id'>$brand_title</a>";
+                        }
+                        ?>
                     </div>
                 </div>
                 <div>
                     <p class="text-2xl bg-slate-200 py-5">Categories</p>
                     <div>
-                        <a class="block text-xl py-3 text-xl py-3" href="">Categories 1</a>
+                        <a class="block text-xl py-3" href="">Categories 1</a>
                         <a class="block text-xl py-3" href="">Categories 2</a>
                         <a class="block text-xl py-3" href="">Categories 3</a>
                         <a class="block text-xl py-3" href="">Categories 4</a>
