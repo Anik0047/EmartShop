@@ -25,15 +25,12 @@ include('database/connect.php');
             <div class="dropdown">
                 <!-- Dropdown button for mobile view -->
                 <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h8m-8 6h16" />
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
                     </svg>
                 </div>
                 <!-- Dropdown menu for mobile view -->
-                <ul tabindex="0"
-                    class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                     <li><a>Products</a></li>
                     <li><a>About US</a></li>
                     <li><a>Contact</a></li>
@@ -63,10 +60,8 @@ include('database/connect.php');
                     <!-- Shopping cart icon with notification badge -->
                     <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
                         <div class="indicator">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                             </svg>
                             <span class="badge badge-sm indicator-item">8</span>
                         </div>
@@ -90,8 +85,7 @@ include('database/connect.php');
                         </div>
                     </div>
                     <!-- Dropdown menu for user profile -->
-                    <ul tabindex="0"
-                        class="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+                    <ul tabindex="0" class="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
                         <li>
                             <a class="justify-between">
                                 Profile
@@ -142,7 +136,7 @@ include('database/connect.php');
         </div>
         <div class="flex justify-around mx-5 my-10">
             <!-- Sidebar with brands and categories -->
-            <div class="border border-black w-72 text-center">
+            <div class="w-72 text-center">
                 <div>
                     <p class="text-2xl bg-slate-200 py-5">Brands</p>
                     <div>
@@ -193,8 +187,7 @@ include('database/connect.php');
                 </div>
                 <!-- Example product card -->
                 <div class="card w-96 bg-base-100 drop-shadow-2xl">
-                    <figure><img src="images/Calvin-Klein/Framed-Flower-Graphic-Classic-Crewneck-T-Shirt/pic-1.png"
-                            alt="Shoes" /></figure>
+                    <figure><img src="images/Calvin-Klein/Framed-Flower-Graphic-Classic-Crewneck-T-Shirt/pic-1.png" alt="Shoes" /></figure>
                     <div class="card-body">
                         <h2 class="card-title">Shoes!</h2>
                         <p>If a dog chews shoes whose shoes does he choose?</p>
@@ -216,8 +209,7 @@ include('database/connect.php');
                 </div>
                 <!-- Example product card -->
                 <div class="card w-96 bg-base-100 drop-shadow-2xl">
-                    <figure><img src="images/Oliver Brown/Amalfi Linen Shirt - Blue-White Stripe/pic-1.png"
-                            alt="Shoes" /></figure>
+                    <figure><img src="images/Oliver Brown/Amalfi Linen Shirt - Blue-White Stripe/pic-1.png" alt="Shoes" /></figure>
                     <div class="card-body">
                         <h2 class="card-title">Shoes!</h2>
                         <p>If a dog chews shoes whose shoes does he choose?</p>
@@ -235,10 +227,10 @@ include('database/connect.php');
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!-- Initialize Swiper -->
     <script>
-    var swiper = new Swiper(".mySwiper", {
-        effect: "cards",
-        grabCursor: true,
-    });
+        var swiper = new Swiper(".mySwiper", {
+            effect: "cards",
+            grabCursor: true,
+        });
     </script>
 </body>
 

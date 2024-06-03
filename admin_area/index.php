@@ -35,6 +35,9 @@
                 if (isset($_GET['insert_brands'])) {
                     include('./admin_page/insert_brands.php');
                 }
+                if (isset($_GET['insert_product'])) {
+                    include('./admin_page/insert_product.php');
+                }
                 ?>
             </div>
         </div>
@@ -64,7 +67,7 @@
                         Insert Products
                     </div>
                     <div class="collapse-content text-lg">
-                        <a class="block py-5" href=""><i class="fa-solid fa-bolt pe-5"></i>Products</a>
+                        <a class="block py-5" href="index.php?insert_product"><i class="fa-solid fa-bolt pe-5"></i>Products</a>
                         <a class="block py-5" href="index.php?insert_categories"><i class="fa-solid fa-bolt pe-5"></i>Categories</a>
                         <a class="block py-5" href="index.php?insert_brands"><i class="fa-solid fa-bolt pe-5"></i>Brands</a>
                     </div>
