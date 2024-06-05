@@ -68,27 +68,26 @@ body {
 
 .swiper-slide:nth-child(1n) {
     background-color: rgb(228, 221, 221);
-    background-image: url('images/Adidas/DROPSET\ 2\ TRAINING\ SHOES/pic-1.png');
+    background-image: url('images/Adidas/DROPSET\ 2\ TRAINING SHOES/DROPSET 2 TRAINING SHOES-pic-1.png');
     background-size: cover;
 }
 
 .swiper-slide:nth-child(2n) {
     background-color: rgb(228, 221, 221);
-    background-image: url('images/Nike/Jordan\ True\ Flight/pic-1.png');
+    background-image: url('images/Nike/Jordan True Flight/Jordan True Flight-pic-1.png');
     object-fit: cover;
 }
 
 .swiper-slide:nth-child(3n) {
     background-color: rgb(228, 221, 221);
-    background-image: url('images/Louis-Vuitton/Christopher\ MM/pic-2.png');
+    background-image: url('images/Louis-Vuitton/Christopher MM/Christopher MM-pic-2.png');
     background-size: cover;
 }
 
 .swiper-slide:nth-child(4n) {
-    /* background-color: rgb(211, 122, 7); */
-    background-image: url('images/Calvin-Klein/Framed-Flower-Graphic-Classic-Crewneck-T-Shirt/pic-1.png');
+    background-color: rgb(228, 221, 221);
+    background-image: url('images/Calvin-Klein/Framed-Flower-Graphic-Classic-Crewneck-T-Shirt/Framed-Flower-Graphic-Classic-Crewneck-T-Shirt-pic-1.png');
     background-size: cover;
-    background-repeat: no-repeat;
 }
 
 /* Product */
