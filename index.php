@@ -1,6 +1,7 @@
 <?php
 // Include the database connection file
 include('database/connect.php');
+include('functions/common_function.php');
 ?>
 <!doctype html>
 <html>
@@ -147,16 +148,7 @@ include('database/connect.php');
                     <p class="text-2xl bg-slate-200 py-5">Brands</p>
                     <div>
                         <?php
-                        // Query to select all brands from the database
-                        $select_brands = "SELECT * from `brands`";
-                        // Execute the query
-                        $brands_result = mysqli_query($conn, $select_brands);
-                        // Loop through the results and display each brand
-                        while ($row_data = mysqli_fetch_assoc($brands_result)) {
-                            $brand_id = $row_data['brands_id'];
-                            $brand_title = $row_data['brands_title'];
-                            echo "<a class='block text-xl py-3' href='index.php?brand=$brand_id'>$brand_title</a>";
-                        }
+                        getBrands();
                         ?>
                     </div>
                 </div>
@@ -164,16 +156,7 @@ include('database/connect.php');
                     <p class="text-2xl bg-slate-200 py-5">Categories</p>
                     <div>
                         <?php
-                        // Query to select all categories from the database
-                        $select_categories = "SELECT * from `categories`";
-                        // Execute the query
-                        $categories_result = mysqli_query($conn, $select_categories);
-                        // Loop through the results and display each category
-                        while ($row_data = mysqli_fetch_assoc($categories_result)) {
-                            $category_id = $row_data['category_id'];
-                            $category_title = $row_data['category_title'];
-                            echo "<a class='block text-xl py-3' href='index.php?category=$category_id'>$category_title</a>";
-                        }
+                        getCategories();
                         ?>
                     </div>
                 </div>
@@ -182,31 +165,7 @@ include('database/connect.php');
             <div class="grid justify-items-stretch grid-cols-3 gap-20">
                 <!-- Example product card -->
                 <?php
-                $select_product_query = "SELECT * from `products` order by rand() LIMIT 0,6";
-                $result = mysqli_query($conn, $select_product_query);
-                while ($row_data = mysqli_fetch_assoc($result)) {
-                    $product_id = $row_data['product_id'];
-                    $product_name = $row_data['product_name'];
-                    $product_price = $row_data['product_price'];
-                    $product_image_1 = $row_data['product_image_1'];
-                    $category_id = $row_data['category_id'];
-                    $brand_id = $row_data['brands_id'];
-
-                    echo "
-                <div class='card w-96 bg-base-100 drop-shadow-2xl'>
-                    <figure><img src='./admin_area/product_images/$product_image_1' alt='Shoes' /></figure>
-                    <div class='card-body'>
-                        <h2 class='card-title'>$product_name</h2>
-                        <p class='text-lg'>Tk <span class='text-xl'>$product_price</span></p>
-                        <div class='card-actions justify-start'>
-                            <button class='btn btn-primary'>Buy Now</button>
-                            <button class='btn btn-primary'>Details</button>
-                            <button class='btn btn-primary'>View More</button>
-                        </div>
-                    </div>
-                </div>
-                ";
-                }
+                getProducts();
                 ?>
             </div>
         </div>
