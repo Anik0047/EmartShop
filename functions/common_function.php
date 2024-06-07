@@ -189,7 +189,7 @@ function get_all_product()
     // condition
     if (!isset($_GET['category'])) {
         if (!isset($_GET['brand'])) {
-            $select_product_query = "SELECT * from `products` order by rand() LIMIT 0,9";
+            $select_product_query = "SELECT * from `products` order by rand()";
             $result = mysqli_query($conn, $select_product_query);
             while ($row_data = mysqli_fetch_assoc($result)) {
                 $product_id = $row_data['product_id'];
