@@ -119,7 +119,7 @@ include('functions/common_function.php');
     <section>
         <div>
             <!-- Section title -->
-            <p class="text-4xl md:ms-32 md:my-32 md:ps-2 border-black border-b-2 w-40 rounded-bl-lg">Products</p>
+            <p class="text-4xl md:ms-32 md:my-20 md:ps-2 border-black border-b-2 w-40 rounded-bl-lg">Products</p>
         </div>
         <div class="flex justify-around mx-5 my-10">
             <!-- Sidebar with brands and categories -->

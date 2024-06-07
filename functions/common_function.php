@@ -18,7 +18,7 @@ function getBrands()
     while ($row_data = mysqli_fetch_assoc($brands_result)) {
         $brand_id = $row_data['brands_id'];
         $brand_title = $row_data['brands_title'];
-        echo "<a class='block text-xl py-3'  href='index.php?brand=$brand_id'>$brand_title</a>";
+        echo "<a class='block text-xl py-3'  href='all_products.php?brand=$brand_id'>$brand_title</a>";
     }
 }
 
@@ -36,7 +36,7 @@ function getCategories()
     while ($row_data = mysqli_fetch_assoc($categories_result)) {
         $category_id = $row_data['category_id'];
         $category_title = $row_data['category_title'];
-        echo "<a class='block text-xl py-3' href='index.php?category=$category_id'>$category_title</a>";
+        echo "<a class='block text-xl py-3' href='all_products.php?category=$category_id'>$category_title</a>";
     }
 }
 
