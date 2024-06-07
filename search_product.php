@@ -46,7 +46,7 @@ include('functions/common_function.php');
             <!-- Brand logo and name -->
             <div class="flex items-center">
                 <img class="w-20 md:w-24" src="images/logo.png" alt="">
-                <a class="btn btn-ghost text-xl">Emart Shop</a>
+                <a href="index.php" class="btn btn-ghost text-xl">Emart Shop</a>
             </div>
         </div>
         <div class="navbar-center hidden lg:flex">
@@ -115,33 +115,6 @@ include('functions/common_function.php');
     </div>
     <!-- End Navbar section -->
 
-    <!-- Banner section -->
-    <section class="flex md:flex-row flex-col justify-evenly items-center mt-10 md:my-20">
-        <!-- Welcome message -->
-        <div class="brand_detail">
-            <h1 class="text-3xl md:text-4xl tracking-wide md:tracking-wider leading-relaxed md:leading-loose">Welcome to
-                <span class="text-4xl md:text-6xl italic text-orange-500">Emart Shop</span>
-            </h1>
-            <h1 class="text-3xl md:text-4xl tracking-wide md:tracking-wider leading-relaxed md:leading-loose">Your
-                One-Stop Online Store
-            </h1>
-            <h1 class="text-3xl md:text-4xl tracking-wide md:tracking-wider leading-relaxed md:leading-loose">The Future
-                of Online Shopping</h1>
-        </div>
-        <!-- Swiper slider for the banner -->
-        <div class="body">
-            <div class="swiper mySwiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide"></div>
-                    <div class="swiper-slide"></div>
-                    <div class="swiper-slide"></div>
-                    <div class="swiper-slide"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End Banner section -->
-
     <!-- Products section -->
     <section>
         <div>
@@ -172,7 +145,8 @@ include('functions/common_function.php');
             <div class="grid justify-items-stretch grid-cols-3 gap-20">
                 <!-- Example product card -->
                 <?php
-                getProducts();
+                search_product();
+                // getProducts();
                 get_Specific_Categories();
                 get_Specific_Brands();
                 ?>
@@ -180,16 +154,6 @@ include('functions/common_function.php');
         </div>
     </section>
     <!-- End Products section -->
-
-    <!-- Include Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <!-- Initialize Swiper -->
-    <script>
-    var swiper = new Swiper(".mySwiper", {
-        effect: "cards",
-        grabCursor: true,
-    });
-    </script>
 </body>
 
 </html>

@@ -18,7 +18,7 @@ function getBrands()
     while ($row_data = mysqli_fetch_assoc($brands_result)) {
         $brand_id = $row_data['brands_id'];
         $brand_title = $row_data['brands_title'];
-        echo "<a class='block text-xl py-3' href='index.php?brand=$brand_id'>$brand_title</a>";
+        echo "<a class='block text-xl py-3'  href='index.php?brand=$brand_id'>$brand_title</a>";
     }
 }
 
@@ -140,5 +140,42 @@ function get_Specific_Brands()
                         </div>
                         ";
         }
+    }
+}
+
+
+function search_product()
+{
+    global $conn;
+
+    if (isset($_GET['search_button'])) {
+        $search_data_value = $_GET['search_field'];
+    }
+
+
+    $search_product_query = "SELECT * from `products` where product_keywords like '%$search_data_value%'";
+    $result = mysqli_query($conn, $search_product_query);
+    while ($row_data = mysqli_fetch_assoc($result)) {
+        $product_id = $row_data['product_id'];
+        $product_name = $row_data['product_name'];
+        $product_price = $row_data['product_price'];
+        $product_image_1 = $row_data['product_image_1'];
+        $category_id = $row_data['category_id'];
+        $brand_id = $row_data['brands_id'];
+
+        echo "
+                        <div class='card w-96 h-min bg-base-100 drop-shadow-2xl'>
+                            <figure><img src='./admin_area/product_images/$product_image_1' alt='Shoes' /></figure>
+                            <div class='card-body'>
+                                <h2 class='card-title'>$product_name</h2>
+                                <p class='text-lg'>Tk <span class='text-xl'>$product_price</span></p>
+                                <div class='card-actions justify-start'>
+                                    <button class='btn btn-primary'>Buy Now</button>
+                                    <button class='btn btn-primary'>Details</button>
+                                    <button class='btn btn-primary'>View More</button>
+                                </div>
+                            </div>
+                        </div>
+                        ";
     }
 }
