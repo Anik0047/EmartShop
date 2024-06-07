@@ -17,7 +17,9 @@ include('functions/common_function.php');
     <link rel="stylesheet" href="style.css">
     <!-- Include Swiper's CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -27,12 +29,15 @@ include('functions/common_function.php');
             <div class="dropdown">
                 <!-- Dropdown button for mobile view -->
                 <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h8m-8 6h16" />
                     </svg>
                 </div>
                 <!-- Dropdown menu for mobile view -->
-                <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                <ul tabindex="0"
+                    class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                     <li><a>Products</a></li>
                     <li><a>About US</a></li>
                     <li><a>Contact</a></li>
@@ -56,7 +61,8 @@ include('functions/common_function.php');
             <!-- Search bar -->
             <div class="flex">
                 <form method="get" action="search_product.php">
-                    <input name="search_field" type="search" placeholder="Search" class="input input-bordered w-24 md:w-auto" />
+                    <input name="search_field" type="search" placeholder="Search"
+                        class="input input-bordered w-24 md:w-auto" />
                     <input class="mx-5" type="submit" name="search_button" value="search">
                 </form>
             </div>
@@ -65,8 +71,10 @@ include('functions/common_function.php');
                     <!-- Shopping cart icon with notification badge -->
                     <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
                         <div class="indicator">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                             </svg>
                             <span class="badge badge-sm indicator-item">8</span>
                         </div>
@@ -90,7 +98,8 @@ include('functions/common_function.php');
                         </div>
                     </div>
                     <!-- Dropdown menu for user profile -->
-                    <ul tabindex="0" class="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+                    <ul tabindex="0"
+                        class="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
                         <li>
                             <a class="justify-between">
                                 Profile
@@ -105,33 +114,6 @@ include('functions/common_function.php');
         </div>
     </div>
     <!-- End Navbar section -->
-
-    <!-- Banner section -->
-    <section class="flex md:flex-row flex-col justify-evenly items-center mt-10 md:my-20">
-        <!-- Welcome message -->
-        <div class="brand_detail">
-            <h1 class="text-3xl md:text-4xl tracking-wide md:tracking-wider leading-relaxed md:leading-loose">Welcome to
-                <span class="text-4xl md:text-6xl italic text-orange-500">Emart Shop</span>
-            </h1>
-            <h1 class="text-3xl md:text-4xl tracking-wide md:tracking-wider leading-relaxed md:leading-loose">Your
-                One-Stop Online Store
-            </h1>
-            <h1 class="text-3xl md:text-4xl tracking-wide md:tracking-wider leading-relaxed md:leading-loose">The Future
-                of Online Shopping</h1>
-        </div>
-        <!-- Swiper slider for the banner -->
-        <div class="body">
-            <div class="swiper mySwiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide"></div>
-                    <div class="swiper-slide"></div>
-                    <div class="swiper-slide"></div>
-                    <div class="swiper-slide"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End Banner section -->
 
     <!-- Products section -->
     <section>
@@ -163,7 +145,7 @@ include('functions/common_function.php');
             <div class="grid justify-items-stretch grid-cols-3 gap-20">
                 <!-- Example product card -->
                 <?php
-                getProducts();
+                get_all_product();
                 get_Specific_Categories();
                 get_Specific_Brands();
                 ?>
@@ -171,16 +153,6 @@ include('functions/common_function.php');
         </div>
     </section>
     <!-- End Products section -->
-
-    <!-- Include Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <!-- Initialize Swiper -->
-    <script>
-        var swiper = new Swiper(".mySwiper", {
-            effect: "cards",
-            grabCursor: true,
-        });
-    </script>
 </body>
 
 </html>
