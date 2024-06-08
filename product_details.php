@@ -20,6 +20,23 @@ include('functions/common_function.php');
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+    @keyframes bounce-once {
+
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+
+    .hover\:bounce-once:hover {
+        animation: bounce-once 0.5s ease;
+    }
+    </style>
 </head>
 
 <body>
@@ -115,41 +132,39 @@ include('functions/common_function.php');
     </div>
     <!-- End Navbar section -->
 
-    <!-- Products section -->
-    <section>
-        <div>
-            <!-- Section title -->
-            <p class="text-4xl md:ms-32 md:mt-40 md:ps-2 border-black border-b-2 w-40 rounded-bl-lg">Products</p>
+    <!-- Products section  -->
+    <section class="my-32 mx-20 grid grid-cols-2">
+        <div class="">
+            <div class="w-4/6 carousel rounded-box shadow-2xl shadow-cyan-500">
+                <div class="carousel-item w-full">
+                    <img src="./images/Adidas/ADILETTE 22 SLIDES/ADILETTE 22 SLIDES-pic-1.png" class="w-full"
+                        alt="Tailwind CSS Carousel component" />
+                </div>
+                <div class="carousel-item w-full">
+                    <img src="./images/Adidas/CITY TECH TWO WATCH/CITY TECH TWO WATCH-pic-1.png" class="w-full"
+                        alt="Tailwind CSS Carousel component" />
+                </div>
+                <div class="carousel-item w-full">
+                    <img src="./images/Adidas/DROPSET 2 TRAINING SHOES/DROPSET 2 TRAINING SHOES-pic-1.png"
+                        class="w-full" alt="Tailwind CSS Carousel component" />
+                </div>
+            </div>
+            <div class="mt-20 mx-20">
+                <p>Click and use left or right arrow to change image</p>
+            </div>
         </div>
-        <div class="flex justify-around mx-5 my-10">
-            <!-- Sidebar with brands and categories -->
-            <div class="w-72 text-center">
-                <div>
-                    <p class="text-2xl bg-slate-200 py-5">Brands</p>
-                    <div>
-                        <?php
-                        getBrands();
-                        ?>
-                    </div>
-                </div>
-                <div>
-                    <p class="text-2xl bg-slate-200 py-5">Categories</p>
-                    <div>
-                        <?php
-                        getCategories();
-                        ?>
-                    </div>
-                </div>
-            </div>
-            <!-- Product cards -->
-            <div class="grid justify-items-stretch grid-cols-3 gap-20">
-                <!-- Example product card -->
-                <?php
-                get_all_product();
-                get_Specific_Categories();
-                get_Specific_Brands();
-                ?>
-            </div>
+        <div class="mt-20 ">
+            <p class="text-3xl mb-10">Product Name</p>
+            <p class="text-lg mb-10">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, at vero asperiores,
+                amet
+                voluptas, dolore
+                ad eaque magnam non est voluptatum. Ad vero incidunt porro sequi officia temporibus repellat fuga?</p>
+            <p class="text-xl mb-10">Tk <span class="text-2xl px-2 font-bold">20000</span> BDT</p>
+            <button
+                class="px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:shadow-lg focus:outline-none hover:bounce-once"><a
+                    href="#">
+                    Hover me!
+                </a></button>
         </div>
     </section>
     <!-- End Products section -->
