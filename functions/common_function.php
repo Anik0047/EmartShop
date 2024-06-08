@@ -66,8 +66,7 @@ function getProducts()
                                 <p class='text-lg'>Tk <span class='text-xl'>$product_price</span></p>
                                 <div class='card-actions justify-start'>
                                     <button class='btn btn-primary'>Buy Now</button>
-                                    <button class='btn btn-primary'>Details</button>
-                                    <button class='btn btn-primary'>View More</button>
+                                    <a href='product_details.php' class='btn btn-primary'>Details</a>
                                 </div>
                             </div>
                         </div>
@@ -100,8 +99,7 @@ function get_Specific_Categories()
                                 <p class='text-lg'>Tk <span class='text-xl'>$product_price</span></p>
                                 <div class='card-actions justify-start'>
                                     <button class='btn btn-primary'>Buy Now</button>
-                                    <button class='btn btn-primary'>Details</button>
-                                    <button class='btn btn-primary'>View More</button>
+                                    <a href='product_details.php' class='btn btn-primary'>Details</a>
                                 </div>
                             </div>
                         </div>
@@ -133,8 +131,7 @@ function get_Specific_Brands()
                                 <p class='text-lg'>Tk <span class='text-xl'>$product_price</span></p>
                                 <div class='card-actions justify-start'>
                                     <button class='btn btn-primary'>Buy Now</button>
-                                    <button class='btn btn-primary'>Details</button>
-                                    <button class='btn btn-primary'>View More</button>
+                                    <a href='product_details.php' class='btn btn-primary'>Details</a>
                                 </div>
                             </div>
                         </div>
@@ -171,8 +168,7 @@ function search_product()
                                 <p class='text-lg'>Tk <span class='text-xl'>$product_price</span></p>
                                 <div class='card-actions justify-start'>
                                     <button class='btn btn-primary'>Buy Now</button>
-                                    <button class='btn btn-primary'>Details</button>
-                                    <button class='btn btn-primary'>View More</button>
+                                    <a href='product_details.php' class='btn btn-primary'>Details</a>
                                 </div>
                             </div>
                         </div>
@@ -207,8 +203,7 @@ function get_all_product()
                                 <p class='text-lg'>Tk <span class='text-xl'>$product_price</span></p>
                                 <div class='card-actions justify-start'>
                                     <button class='btn btn-primary'>Buy Now</button>
-                                    <button class='btn btn-primary'>Details</button>
-                                    <button class='btn btn-primary'>View More</button>
+                                    <a href='product_details.php' class='btn btn-primary'>Details</a>
                                 </div>
                             </div>
                         </div>
