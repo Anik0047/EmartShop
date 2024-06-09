@@ -261,7 +261,7 @@ function product_details()
             <p class='text-3xl mb-10'>$product_name</p>
             <p class='text-lg mb-10'>$product_description</p>
             <p class='text-xl mb-10'>Tk <span class='text-2xl px-2 font-bold'>$product_price</span> BDT</p>
-            <button class='px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:shadow-lg focus:outline-none hover:bounce-once'><a href='#'>
+            <button class='px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:shadow-lg focus:outline-none hover:bounce-once'><a href='index.php?add_to_cart=$product_id'>
                     Buy Now
                 </a></button>
         </div>
@@ -299,6 +299,7 @@ function getIPAddress()
 
 // cart function
 
+
 function add_to_cart()
 {
     if (isset($_GET['add_to_cart'])) {
@@ -306,21 +307,41 @@ function add_to_cart()
         $ip = getIPAddress();
         $get_product_id = $_GET['add_to_cart'];
 
-        $select_query = "SELECT * from `cart_details` where ip_address='$ip' and product_id=$get_product_id";
+        $select_query = "SELECT * FROM `cart_details` WHERE ip_address='$ip' AND product_id=$get_product_id";
         $result = mysqli_query($conn, $select_query);
 
         $num_of_rows = mysqli_num_rows($result);
         if ($num_of_rows > 0) {
-            echo "<script>alert('Item is already present inside cart')</script>";
-            echo "<script>window.open('index.php','_self')</script>";
+            echo "<script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        Swal.fire({
+                            icon: 'info',
+                            title: 'Oops...',
+                            text: 'Item is already present inside cart'
+                        }).then(function() {
+                            window.location = 'index.php';
+                        });
+                    });
+                </script>";
         } else {
-            $insert_query = "INSERT into `cart_details` (product_id,ip_address,quantity) values ($get_product_id,'$ip',0)";
+            $insert_query = "INSERT INTO `cart_details` (product_id, ip_address, quantity) VALUES ($get_product_id, '$ip', 0)";
             $result = mysqli_query($conn, $insert_query);
-            echo "<script>alert('Item add into cart')</script>";
-            echo "<script>window.open('index.php','_self')</script>";
+            echo "<script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: 'Item added to cart'
+                        }).then(function() {
+                            window.location = 'index.php';
+                        });
+                    });
+                </script>";
         }
     }
 }
+
+
 
 
 // get cart item number
@@ -345,4 +366,28 @@ function showing_cart_item()
         $cart_items = mysqli_num_rows($result);
     }
     echo $cart_items;
+}
+
+
+// total product price
+
+function total_product_price()
+{
+
+    global $conn;
+    $ip = getIPAddress();
+    $sub_total = 0;
+    $total_product_price_query = "SELECT * from `cart_details` where ip_address='$ip'";
+    $result = mysqli_query($conn, $total_product_price_query);
+    while ($row = mysqli_fetch_array($result)) {
+        $product_id = $row['product_id'];
+        $products_query = "SELECT * from `products` where product_id='$product_id'";
+        $products_result = mysqli_query($conn, $products_query);
+        while ($products_row = mysqli_fetch_array($products_result)) {
+            $product_price = array($products_row['product_price']);
+            $product_sum = array_sum($product_price);
+            $sub_total += $product_sum;
+        }
+    }
+    echo $sub_total;
 }
