@@ -175,6 +175,8 @@ include('functions/common_function.php');
                 getProducts();
                 get_Specific_Categories();
                 get_Specific_Brands();
+                // $ip = getIPAddress();
+                // echo 'User Real IP Address - ' . $ip;
                 ?>
             </div>
         </div>
