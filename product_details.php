@@ -133,40 +133,9 @@ include('functions/common_function.php');
     <!-- End Navbar section -->
 
     <!-- Products section  -->
-    <section class="my-32 mx-20 grid grid-cols-2">
-        <div class="">
-            <div class="w-4/6 carousel rounded-box shadow-2xl shadow-cyan-500">
-                <div class="carousel-item w-full">
-                    <img src="./images/Adidas/ADILETTE 22 SLIDES/ADILETTE 22 SLIDES-pic-1.png" class="w-full"
-                        alt="Tailwind CSS Carousel component" />
-                </div>
-                <div class="carousel-item w-full">
-                    <img src="./images/Adidas/CITY TECH TWO WATCH/CITY TECH TWO WATCH-pic-1.png" class="w-full"
-                        alt="Tailwind CSS Carousel component" />
-                </div>
-                <div class="carousel-item w-full">
-                    <img src="./images/Adidas/DROPSET 2 TRAINING SHOES/DROPSET 2 TRAINING SHOES-pic-1.png"
-                        class="w-full" alt="Tailwind CSS Carousel component" />
-                </div>
-            </div>
-            <div class="mt-20 mx-20">
-                <p>Click and use left or right arrow to change image</p>
-            </div>
-        </div>
-        <div class="mt-20 ">
-            <p class="text-3xl mb-10">Product Name</p>
-            <p class="text-lg mb-10">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, at vero asperiores,
-                amet
-                voluptas, dolore
-                ad eaque magnam non est voluptatum. Ad vero incidunt porro sequi officia temporibus repellat fuga?</p>
-            <p class="text-xl mb-10">Tk <span class="text-2xl px-2 font-bold">20000</span> BDT</p>
-            <button
-                class="px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:shadow-lg focus:outline-none hover:bounce-once"><a
-                    href="#">
-                    Hover me!
-                </a></button>
-        </div>
-    </section>
+    <?php
+    product_details();
+    ?>
     <!-- End Products section -->
 </body>
 

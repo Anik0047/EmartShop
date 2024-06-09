@@ -220,31 +220,54 @@ function product_details()
 {
     global $conn;
     // condition
-    if (!isset($_GET['category'])) {
-        if (!isset($_GET['brand'])) {
-            $select_product_query = "SELECT * from `products`";
-            $result = mysqli_query($conn, $select_product_query);
-            while ($row_data = mysqli_fetch_assoc($result)) {
-                $product_id = $row_data['product_id'];
-                $product_name = $row_data['product_name'];
-                $product_price = $row_data['product_price'];
-                $product_image_1 = $row_data['product_image_1'];
-                $category_id = $row_data['category_id'];
-                $brand_id = $row_data['brands_id'];
+    if (isset($_GET['product_id'])) {
+        if (!isset($_GET['category'])) {
+            if (!isset($_GET['brand'])) {
 
-                echo "
-                        <div class='card w-96 h-min bg-base-100 drop-shadow-2xl'>
-                            <figure><img src='./admin_area/product_images/$product_image_1' alt='Shoes' /></figure>
-                            <div class='card-body'>
-                                <h2 class='card-title'>$product_name</h2>
-                                <p class='text-lg'>Tk <span class='text-xl'>$product_price</span></p>
-                                <div class='card-actions justify-start'>
-                                    <button class='btn btn-primary'>Buy Now</button>
-                                    <a href='product_details.php?product_id=$product_id' class='btn btn-primary'>Details</a>
-                                </div>
-                            </div>
-                        </div>
+                $product_id = $_GET['product_id'];
+
+                $select_product_query = "SELECT * from `products` where product_id=$product_id";
+                $result = mysqli_query($conn, $select_product_query);
+                while ($row_data = mysqli_fetch_assoc($result)) {
+                    $product_id = $row_data['product_id'];
+                    $product_name = $row_data['product_name'];
+                    $product_description = $row_data['product_description'];
+                    $product_price = $row_data['product_price'];
+                    $product_image_1 = $row_data['product_image_1'];
+                    $product_image_2 = $row_data['product_image_2'];
+                    $product_image_3 = $row_data['product_image_3'];
+                    $category_id = $row_data['category_id'];
+                    $brand_id = $row_data['brands_id'];
+
+                    echo "
+                        <section class='my-32 mx-20 grid grid-cols-2'>
+        <div class=''>
+            <div class='w-4/6 carousel rounded-box shadow-2xl shadow-cyan-500'>
+                <div class='carousel-item w-full'>
+                    <img src='./admin_area/product_images/$product_image_1' class='w-full' alt='Tailwind CSS Carousel component' />
+                </div>
+                <div class='carousel-item w-full'>
+                    <img src='./admin_area/product_images/$product_image_2' class='w-full' alt='Tailwind CSS Carousel component' />
+                </div>
+                <div class='carousel-item w-full'>
+                    <img src='./admin_area/product_images/$product_image_3' class='w-full' alt='Tailwind CSS Carousel component' />
+                </div>
+            </div>
+            <div class='mt-20 mx-20'>
+                <p>Click and use right arrow to change image</p>
+            </div>
+        </div>
+        <div class='mt-20 '>
+            <p class='text-3xl mb-10'>$product_name</p>
+            <p class='text-lg mb-10'>$product_description</p>
+            <p class='text-xl mb-10'>Tk <span class='text-2xl px-2 font-bold'>$product_price</span> BDT</p>
+            <button class='px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:shadow-lg focus:outline-none hover:bounce-once'><a href='#'>
+                    Buy Now
+                </a></button>
+        </div>
+    </section>
                         ";
+                }
             }
         }
     }
