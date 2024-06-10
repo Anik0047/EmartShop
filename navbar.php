@@ -54,7 +54,7 @@
                         <span class="text-black">Subtotal: <span class="text-lg"><?php total_product_price(); ?></span>
                             BDT</span>
                         <div class="card-actions">
-                            <button class="btn btn-primary btn-block">View cart</button>
+                            <a href="cart.php" class="btn btn-primary btn-block">View cart</a>
                         </div>
                     </div>
                 </div>
