@@ -65,7 +65,7 @@ function getProducts()
                                 <h2 class='card-title'>$product_name</h2>
                                 <p class='text-lg'>Tk <span class='text-xl'>$product_price</span></p>
                                 <div class='card-actions justify-start'>
-                                    <a href='index.php?add_to_cart=$product_id' class='btn btn-primary'>Buy Now</a>
+                                    <a href='index.php?add_to_cart=$product_id' class='btn btn-primary'>Add to cart</a>
                                     <a href='product_details.php?product_id=$product_id' class='btn btn-primary'>Details</a>
                                 </div>
                             </div>
@@ -98,7 +98,7 @@ function get_Specific_Categories()
                                 <h2 class='card-title'>$product_name</h2>
                                 <p class='text-lg'>Tk <span class='text-xl'>$product_price</span></p>
                                 <div class='card-actions justify-start'>
-                                    <a href='index.php?add_to_cart=$product_id' class='btn btn-primary'>Buy Now</a>
+                                    <a href='index.php?add_to_cart=$product_id' class='btn btn-primary'>Add to cart</a>
                                     <a href='product_details.php?product_id=$product_id' class='btn btn-primary'>Details</a>
                                 </div>
                             </div>
@@ -130,7 +130,7 @@ function get_Specific_Brands()
                                 <h2 class='card-title'>$product_name</h2>
                                 <p class='text-lg'>Tk <span class='text-xl'>$product_price</span></p>
                                 <div class='card-actions justify-start'>
-                                    <a href='index.php?add_to_cart=$product_id' class='btn btn-primary'>Buy Now</a>
+                                    <a href='index.php?add_to_cart=$product_id' class='btn btn-primary'>Add to cart</a>
                                     <a href='product_details.php?product_id=$product_id' class='btn btn-primary'>Details</a>
                                 </div>
                             </div>
@@ -167,7 +167,7 @@ function search_product()
                                 <h2 class='card-title'>$product_name</h2>
                                 <p class='text-lg'>Tk <span class='text-xl'>$product_price</span></p>
                                 <div class='card-actions justify-start'>
-                                    <a href='index.php?add_to_cart=$product_id' class='btn btn-primary'>Buy Now</a>
+                                    <a href='index.php?add_to_cart=$product_id' class='btn btn-primary'>Add to cart</a>
                                     <a href='product_details.php?product_id=$product_id' class='btn btn-primary'>Details</a>
                                 </div>
                             </div>
@@ -202,7 +202,7 @@ function get_all_product()
                                 <h2 class='card-title'>$product_name</h2>
                                 <p class='text-lg'>Tk <span class='text-xl'>$product_price</span></p>
                                 <div class='card-actions justify-start'>
-                                    <a href='index.php?add_to_cart=$product_id' class='btn btn-primary'>Buy Now</a>
+                                    <a href='index.php?add_to_cart=$product_id' class='btn btn-primary'>Add to cart</a>
                                     <a href='product_details.php?product_id=$product_id' class='btn btn-primary'>Details</a>
                                 </div>
                             </div>
@@ -262,7 +262,7 @@ function product_details()
             <p class='text-lg mb-10'>$product_description</p>
             <p class='text-xl mb-10'>Tk <span class='text-2xl px-2 font-bold'>$product_price</span> BDT</p>
             <button class='px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:shadow-lg focus:outline-none hover:bounce-once'><a href='index.php?add_to_cart=$product_id'>
-                    Buy Now
+                    Add to cart
                 </a></button>
         </div>
     </section>

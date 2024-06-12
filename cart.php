@@ -38,6 +38,10 @@ include('functions/common_function.php');
     .hover\:bounce-once:hover {
         animation: bounce-once 0.5s ease;
     }
+
+    .custom {
+        margin-left: 800px;
+    }
     </style>
 </head>
 
@@ -49,14 +53,22 @@ include('functions/common_function.php');
     ?>
     <!-- End Navbar section -->
 
-
     <!-- cart table -->
     <form action="" method="post">
         <div class="overflow-x-auto mt-40">
             <table class="table">
                 <!-- head -->
-                <thead>
-                    <tr class="text-justify">
+
+                <?php
+                global $conn;
+                $ip = getIPAddress();
+                $sub_total = 0;
+                $total_product_price_query = "SELECT * from `cart_details` where ip_address='$ip'";
+                $result = mysqli_query($conn, $total_product_price_query);
+                $result_count = mysqli_num_rows($result);
+                if ($result_count > 0) {
+                    echo "<thead>
+                    <tr class='text-justify'>
                         <th></th>
                         <th>Name</th>
                         <th>Quantity</th>
@@ -64,114 +76,131 @@ include('functions/common_function.php');
                         <th></th>
                     </tr>
                 </thead>
-                <tbody>
-                    <?php
-                    global $conn;
-                    $ip = getIPAddress();
-                    $sub_total = 0;
-                    $total_product_price_query = "SELECT * from `cart_details` where ip_address='$ip'";
-                    $result = mysqli_query($conn, $total_product_price_query);
+                <tbody>";
                     while ($row = mysqli_fetch_array($result)) {
                         $product_id = $row['product_id'];
+                        $quantity = $row['quantity'];
                         $products_query = "SELECT * from `products` where product_id='$product_id'";
                         $products_result = mysqli_query($conn, $products_query);
                         while ($products_row = mysqli_fetch_array($products_result)) {
-                            $product_price = array($products_row['product_price']);
-                            $price_table = $products_row['product_price'];
+                            $product_price = $products_row['product_price'];
+                            $price_table = $products_row['product_price'] * $quantity;
                             $product_name = $products_row['product_name'];
                             $product_image = $products_row['product_image_1'];
-                            $product_sum = array_sum($product_price);
-                            $sub_total += $product_sum;
-
-                    ?>
-                    <tr>
-                        <th>
-                            <label>
-                                <input name="remove_item[]" value="<?php echo $product_id ?>" type="checkbox"
-                                    class="checkbox border border-black" />
-                            </label>
-                        </th>
-                        <td>
-                            <div class="flex items-center gap-3">
-                                <div class="avatar">
-                                    <div class="mask mask-squircle w-12 h-12">
-                                        <img src="./admin_area/product_images/<?php echo $product_image ?>"
-                                            alt="Avatar Tailwind CSS Component" />
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="font-bold"><?php echo $product_name ?></div>
+                            $sub_total += $price_table;
+                ?>
+                <tr>
+                    <th>
+                        <label>
+                            <input name="remove_item[]" value="<?php echo $product_id ?>" type="checkbox"
+                                class="checkbox border border-black" />
+                        </label>
+                    </th>
+                    <td>
+                        <div class="flex items-center gap-3">
+                            <div class="avatar">
+                                <div class="mask mask-squircle w-12 h-12">
+                                    <img src="./admin_area/product_images/<?php echo $product_image ?>"
+                                        alt="Product Image" />
                                 </div>
                             </div>
-                        </td>
-                        <td>
-                            <input name="quantity" class="border border-black" type="text">
-                        </td>
-                        <?php
-                                $ip = getIPAddress();
-                                if (isset($_POST['update_cart'])) {
-                                    $quantities = $_POST['quantity'];
-                                    $update_cart_query = "UPDATE `cart_details` set quantity=$quantities where ip_address='$ip'";
-                                    $result_product_quantity = mysqli_query($conn, $update_cart_query);
-                                    $sub_total = $sub_total * $quantities;
-                                }
-
-                                ?>
-                        <td>
-                            <p class="text-xl"><strong><?php echo $price_table ?></strong> BDT</p>
-                        </td>
-                        <th>
-                            <input name="update_cart" type="submit"
-                                class='px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:shadow-lg focus:outline-none hover:bounce-once'
-                                value="Update">
-                            <input name="remove_cart" type="submit"
-                                class='px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:shadow-lg focus:outline-none hover:bounce-once'
-                                value="Remove">
-                        </th>
-                    </tr>
-                    <?php
+                            <div>
+                                <div class="font-bold"><?php echo $product_name ?></div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <input name="quantity[<?php echo $product_id ?>]" value="<?php echo $quantity ?>"
+                            class="border border-black" type="number" min="1">
+                    </td>
+                    <td>
+                        <p class="text-xl"><strong><?php echo $price_table ?></strong> BDT</p>
+                    </td>
+                    <th>
+                        <input name="update_cart" type="submit"
+                            class='px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:shadow-lg focus:outline-none hover:bounce-once'
+                            value="Update">
+                        <input name="remove_cart" type="submit"
+                            class='px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:shadow-lg focus:outline-none hover:bounce-once'
+                            value="Remove">
+                    </th>
+                </tr>
+                <?php
                         }
                     }
-                    ?>
+                } else {
+                    echo "<h2 class='text-3xl text-center'>Please Buy Something !!</h2>";
+                }
+                ?>
                 </tbody>
             </table>
         </div>
         <!-- End cart table -->
 
         <div class="my-20 ms-20">
-            <p class="text-2xl">Subtotal: <strong><?php echo $sub_total ?></strong> BDT</p>
-            <div class="mt-5">
-                <button
-                    class='px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:shadow-lg      focus:outline-none hover:bounce-once'><a
-                        href="index.php">Continue shop</a></button>
-                <button
-                    class='px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:shadow-lg     focus:outline-none hover:bounce-once'><a
-                        href="index.php">Checkout</a></button>
-            </div>
+            <?php
+            global $conn;
+            $ip = getIPAddress();
+            
+            $total_product_price_query = "SELECT * from `cart_details` where ip_address='$ip'";
+            $result = mysqli_query($conn, $total_product_price_query);
+            $result_count = mysqli_num_rows($result);
+            if ($result_count > 0) {
+                echo "<p class='text-2xl'>Subtotal: <strong> $sub_total </strong> BDT</p>
+            <div class='mt-5'>
+                <input name='continue_shop' type='submit' class='px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:shadow-lg focus:outline-none hover:bounce-once' value='Continue shop'>
+                <input name='checkout' type='submit' class='px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:shadow-lg focus:outline-none hover:bounce-once' value='Checkout'>
+            </div>";
+            } else {
+                echo "<input name='continue_shop' type='submit' class='custom px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:shadow-lg focus:outline-none hover:bounce-once' value='Continue shop'>";
+            }
+
+            if (isset($_POST['continue_shop'])) {
+                echo "<script>window.open('index.php','_self')</script>";
+            }
+            ?>
+
         </div>
     </form>
 
-    <!-- function to remove from cart 
-    -->
-
+    <!-- function to update and remove from cart -->
     <?php
+    function update_cart_item()
+    {
+        global $conn;
+        $ip = getIPAddress();
+
+        if (isset($_POST['update_cart'])) {
+            foreach ($_POST['quantity'] as $product_id => $quantity) {
+                if ($quantity > 0) {
+                    $update_cart_query = "UPDATE `cart_details` SET quantity = ? WHERE ip_address = ? AND product_id = ?";
+                    $stmt = $conn->prepare($update_cart_query);
+                    $stmt->bind_param("isi", $quantity, $ip, $product_id);
+                    $stmt->execute();
+                }
+            }
+            echo "<script>window.location = 'cart.php';</script>";
+        }
+    }
+
     function remove_cart_item()
     {
-
         global $conn;
 
         if (isset($_POST['remove_cart'])) {
             foreach ($_POST['remove_item'] as $remove_id) {
-                echo $remove_id;
-                $delete_cart_query = "DELETE from `cart_details` where product_id=$remove_id";
-                $result_delete = mysqli_query($conn, $delete_cart_query);
-                if ($result_delete) {
+                $delete_cart_query = "DELETE FROM `cart_details` WHERE product_id = ?";
+                $stmt = $conn->prepare($delete_cart_query);
+                $stmt->bind_param("i", $remove_id);
+                $stmt->execute();
+
+                if ($stmt->affected_rows > 0) {
                     echo "<script>
                     document.addEventListener('DOMContentLoaded', function() {
                         Swal.fire({
                             icon: 'success',
                             title: 'Success',
-                            text: 'Item remove from cart'
+                            text: 'Item removed from cart'
                         }).then(function() {
                             window.location = 'cart.php';
                         });
@@ -181,13 +210,10 @@ include('functions/common_function.php');
             }
         }
     }
-    echo $remove_item = remove_cart_item();
+
+    update_cart_item();
+    remove_cart_item();
     ?>
-
-
-
-
-
 
     <!-- Include Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
