@@ -17,25 +17,27 @@ include('functions/common_function.php');
     <link rel="stylesheet" href="style.css">
     <!-- Include Swiper's CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Include SweetAlert2 CSS for styling the alert -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <style>
-        @keyframes bounce-once {
+    @keyframes bounce-once {
 
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
+        0%,
+        100% {
+            transform: translateY(0);
         }
 
-        .hover\:bounce-once:hover {
-            animation: bounce-once 0.5s ease;
+        50% {
+            transform: translateY(-10px);
         }
+    }
+
+    .hover\:bounce-once:hover {
+        animation: bounce-once 0.5s ease;
+    }
     </style>
 </head>
 
@@ -82,28 +84,30 @@ include('functions/common_function.php');
                             $sub_total += $product_sum;
 
                     ?>
-                            <tr>
-                                <th>
-                                    <label>
-                                        <input type="checkbox" class="checkbox border border-black" />
-                                    </label>
-                                </th>
-                                <td>
-                                    <div class="flex items-center gap-3">
-                                        <div class="avatar">
-                                            <div class="mask mask-squircle w-12 h-12">
-                                                <img src="./admin_area/product_images/<?php echo $product_image ?>" alt="Avatar Tailwind CSS Component" />
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div class="font-bold"><?php echo $product_name ?></div>
-                                        </div>
+                    <tr>
+                        <th>
+                            <label>
+                                <input name="remove_item[]" value="<?php echo $product_id ?>" type="checkbox"
+                                    class="checkbox border border-black" />
+                            </label>
+                        </th>
+                        <td>
+                            <div class="flex items-center gap-3">
+                                <div class="avatar">
+                                    <div class="mask mask-squircle w-12 h-12">
+                                        <img src="./admin_area/product_images/<?php echo $product_image ?>"
+                                            alt="Avatar Tailwind CSS Component" />
                                     </div>
-                                </td>
-                                <td>
-                                    <input name="quantity" class="border border-black" type="text">
-                                </td>
-                                <?php
+                                </div>
+                                <div>
+                                    <div class="font-bold"><?php echo $product_name ?></div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <input name="quantity" class="border border-black" type="text">
+                        </td>
+                        <?php
                                 $ip = getIPAddress();
                                 if (isset($_POST['update_cart'])) {
                                     $quantities = $_POST['quantity'];
@@ -113,14 +117,18 @@ include('functions/common_function.php');
                                 }
 
                                 ?>
-                                <td>
-                                    <p class="text-xl"><strong><?php echo $price_table ?></strong> BDT</p>
-                                </td>
-                                <th>
-                                    <input name="update_cart" type="submit" class='px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:shadow-lg focus:outline-none hover:bounce-once' value="Update">
-                                    <input name="remove_cart" type="submit" class='px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:shadow-lg focus:outline-none hover:bounce-once' value="Remove">
-                                </th>
-                            </tr>
+                        <td>
+                            <p class="text-xl"><strong><?php echo $price_table ?></strong> BDT</p>
+                        </td>
+                        <th>
+                            <input name="update_cart" type="submit"
+                                class='px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:shadow-lg focus:outline-none hover:bounce-once'
+                                value="Update">
+                            <input name="remove_cart" type="submit"
+                                class='px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:shadow-lg focus:outline-none hover:bounce-once'
+                                value="Remove">
+                        </th>
+                    </tr>
                     <?php
                         }
                     }
@@ -133,8 +141,12 @@ include('functions/common_function.php');
         <div class="my-20 ms-20">
             <p class="text-2xl">Subtotal: <strong><?php echo $sub_total ?></strong> BDT</p>
             <div class="mt-5">
-                <button class='px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:shadow-lg      focus:outline-none hover:bounce-once'><a href="index.php">Continue shop</a></button>
-                <button class='px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:shadow-lg     focus:outline-none hover:bounce-once'><a href="index.php">Checkout</a></button>
+                <button
+                    class='px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:shadow-lg      focus:outline-none hover:bounce-once'><a
+                        href="index.php">Continue shop</a></button>
+                <button
+                    class='px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:shadow-lg     focus:outline-none hover:bounce-once'><a
+                        href="index.php">Checkout</a></button>
             </div>
         </div>
     </form>
@@ -143,10 +155,10 @@ include('functions/common_function.php');
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!-- Initialize Swiper -->
     <script>
-        var swiper = new Swiper(".mySwiper", {
-            effect: "cards",
-            grabCursor: true,
-        });
+    var swiper = new Swiper(".mySwiper", {
+        effect: "cards",
+        grabCursor: true,
+    });
     </script>
     <!-- Include SweetAlert2 JS for handling the alert popups -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
