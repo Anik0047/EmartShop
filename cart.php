@@ -141,7 +141,7 @@ include('functions/common_function.php');
             <?php
             global $conn;
             $ip = getIPAddress();
-            
+
             $total_product_price_query = "SELECT * from `cart_details` where ip_address='$ip'";
             $result = mysqli_query($conn, $total_product_price_query);
             $result_count = mysqli_num_rows($result);
@@ -149,7 +149,8 @@ include('functions/common_function.php');
                 echo "<p class='text-2xl'>Subtotal: <strong> $sub_total </strong> BDT</p>
             <div class='mt-5'>
                 <input name='continue_shop' type='submit' class='px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:shadow-lg focus:outline-none hover:bounce-once' value='Continue shop'>
-                <input name='checkout' type='submit' class='px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:shadow-lg focus:outline-none hover:bounce-once' value='Checkout'>
+                <button class='px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:shadow-lg focus:outline-none hover:bounce-once'><a href='checkout.php'>Checkout</a></button>
+
             </div>";
             } else {
                 echo "<input name='continue_shop' type='submit' class='custom px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:shadow-lg focus:outline-none hover:bounce-once' value='Continue shop'>";
