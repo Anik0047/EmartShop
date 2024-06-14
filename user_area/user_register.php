@@ -28,43 +28,35 @@ include('../functions/common_function.php');
             <div class="custom pt-5">
                 <div class="mb-5">
                     <label class="mb-3 ps-2 font-bold" for="">Name</label>
-                    <input name="user_name" type="text" placeholder="Enter Your Name"
-                        class="border-black input input-bordered w-full  " required autocomplete="off" />
+                    <input name="user_name" type="text" placeholder="Enter Your Name" class="border-black input input-bordered w-full  " required autocomplete="off" />
                 </div>
                 <div class="mb-5">
                     <label class="mb-3 ps-2 font-bold" for="">Email</label>
-                    <input name="user_email" type="text" placeholder="Enter Your Email"
-                        class="border-black input input-bordered w-full  " required autocomplete="off" />
+                    <input name="user_email" type="text" placeholder="Enter Your Email" class="border-black input input-bordered w-full  " required autocomplete="off" />
                 </div>
                 <div class="mb-5">
                     <label class="mb-3 ps-2 font-bold" for="">Image</label>
-                    <input name="user_image" type="file" class="border-black file-input file-input-bordered w-full "
-                        required autocomplete="off" />
+                    <input name="user_image" type="file" class="border-black file-input file-input-bordered w-full " required autocomplete="off" />
                 </div>
                 <div class="mb-5">
                     <label class="mb-3 ps-2 font-bold" for="">Password</label>
-                    <input name="user_password" type="password" placeholder="Enter Your Password"
-                        class="border-black input input-bordered w-full  " required autocomplete="off" />
+                    <input name="user_password" type="password" placeholder="Enter Your Password" class="border-black input input-bordered w-full  " required autocomplete="off" />
                 </div>
                 <div class="mb-5">
                     <label class="mb-3 ps-2 font-bold" for="">Confirm Password</label>
-                    <input name="confirm_password" type="password" placeholder="Confirm Password"
-                        class="border-black input input-bordered w-full  " required autocomplete="off" />
+                    <input name="confirm_password" type="password" placeholder="Confirm Password" class="border-black input input-bordered w-full  " required autocomplete="off" />
                 </div>
                 <div class="mb-5">
                     <label class="mb-3 ps-2 font-bold" for="">Address</label>
-                    <input name="user_address" type="text" placeholder="Enter Your Address"
-                        class="border-black input input-bordered w-full  " required autocomplete="off" />
+                    <input name="user_address" type="text" placeholder="Enter Your Address" class="border-black input input-bordered w-full  " required autocomplete="off" />
                 </div>
                 <div class="mb-5">
                     <label class="mb-3 ps-2 font-bold" for="">Contact</label>
-                    <input name="user_phone" type="text" placeholder="Enter Your Number"
-                        class="border-black input input-bordered w-full  " required autocomplete="off" />
+                    <input name="user_phone" type="text" placeholder="Enter Your Number" class="border-black input input-bordered w-full  " required autocomplete="off" />
                 </div>
                 <div>
                     <input name="user_register" type="submit" class="btn btn-accent font-bold" value="Register">
-                    <p class="font-bold pt-2">Already have an account? <a class="text-red-700 link"
-                            href="user_login.php">Login</a>
+                    <p class="font-bold pt-2">Already have an account? <a class="text-red-700 link" href="user_login.php">Login</a>
                     </p>
                     <p class="font-bold"><a href="../index.php">Back</a></p>
                 </div>
@@ -88,7 +80,7 @@ if (isset($_POST['user_register'])) {
     $user_image = $_FILES['user_image']['name'];
     $user_image_tmp = $_FILES['user_image']['tmp_name'];
     $user_ip = getIPAddress();
-    $hash_password=password_hash($user_password, PASSWORD_DEFAULT);
+    $hash_password = password_hash($user_password, PASSWORD_DEFAULT);
 
 
 
@@ -105,9 +97,18 @@ if (isset($_POST['user_register'])) {
 
         $insert_query = "INSERT into `user_table` (user_name,user_email,user_password,user_image,user_ip,user_address,user_phone) values ('$user_name','$user_email',' $hash_password','$user_image','$user_ip','$user_address','$user_phone')";
         $result = mysqli_query($conn, $insert_query);
-        if ($result) {
-            echo "<script>alert('Data inserted successfully')</script>";
-        }
+    }
+
+
+    $select_cart_items = "SELECT * from `cart_details` where ip_address='$user_ip'";
+    $result_cart = mysqli_query($conn, $select_cart_items);
+    $rows = mysqli_num_rows($result_cart);
+    if ($rows > 0) {
+        $_SESSION['user_email'] = $user_email;
+        echo "<script>alert('You have items in your cart!')</script>";
+        echo "<script>window.open('checkout.php','_self')</script>";
+    } else {
+        echo "<script>window.open('../index.php.php','_self')</script>";
     }
 }
 
