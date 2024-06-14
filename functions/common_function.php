@@ -1,6 +1,6 @@
 <?php
 // connect to database
-include('./database/connect.php');
+// include('./database/connect.php');
 
 
 // getting brands from database

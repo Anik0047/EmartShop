@@ -3,19 +3,17 @@
     text-align: left;
 }
 
-body {
-    background: url('../images/symbol-scatter-haikei.svg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh;
-    color: white;
-}
+
 
 .design {
     width: 600px;
     margin: auto;
-    padding: 0 20px 40px;
+    padding: 0 20px 23px 20px;
     background-color: rgba(255, 228, 196, 0.129);
     text-align: center;
     border-radius: 20px;
+}
+
+.login-design {
+    margin-top: 200px;
 }
