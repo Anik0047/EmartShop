@@ -1,5 +1,6 @@
 <?php
 include('../database/connect.php');
+include('../functions/common_function.php');
 ?>
 <?php
 if (isset($_POST['user_login'])) {
@@ -11,11 +12,28 @@ if (isset($_POST['user_login'])) {
     $result = mysqli_query($conn, $select_query);
     $rows_data = mysqli_fetch_assoc($result);
     $hash_password = $rows_data['user_password'];
-    var_dump($hash_password);
+
     $rows_count = mysqli_num_rows($result);
+    $user_ip = getIPAddress();
+
+
+    $select_cart_query = "SELECT * from `cart_details` where ip_address='$user_ip'";
+    $select_result = mysqli_query($conn, $select_cart_query);
+    $cart_rows_count = mysqli_num_rows($select_result);
+
+
     if ($rows_count > 0) {
+        $_SESSION['user_email'] = $user_email;
         if (password_verify($user_password, $hash_password)) {
-            echo "<script>alert('Login Successfully')</script>";
+            if ($rows_count == 1 and $cart_rows_count == 0) {
+                $_SESSION['user_email'] = $user_email;
+                echo "<script>alert('Login Successfully')</script>";
+                echo "<script>window.open('user_dashboard.php','_self')</script>";
+            } else {
+                $_SESSION['user_email'] = $user_email;
+                echo "<script>alert('Login Successfully')</script>";
+                echo "<script>window.open('payment.php','_self')</script>";
+            }
         } else {
             echo "<script>alert('Invalid Password')</script>";
         }
