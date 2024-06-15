@@ -95,7 +95,7 @@ if (isset($_POST['user_register'])) {
     } else {
         move_uploaded_file($user_image_tmp, "./user_profile_image/$user_image");
 
-        $insert_query = "INSERT into `user_table` (user_name,user_email,user_password,user_image,user_ip,user_address,user_phone) values ('$user_name','$user_email',' $hash_password','$user_image','$user_ip','$user_address','$user_phone')";
+        $insert_query = "INSERT into `user_table` (user_name,user_email,user_password,user_image,user_ip,user_address,user_phone) values ('$user_name','$user_email','$hash_password','$user_image','$user_ip','$user_address','$user_phone')";
         $result = mysqli_query($conn, $insert_query);
     }
 

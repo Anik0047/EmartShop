@@ -1,3 +1,30 @@
+<?php
+include('../database/connect.php');
+?>
+<?php
+if (isset($_POST['user_login'])) {
+    $user_email = $_POST['user_email'];
+    $user_password = $_POST['user_password'];
+
+
+    $select_query = "SELECT * from `user_table` where user_email='$user_email'";
+    $result = mysqli_query($conn, $select_query);
+    $rows_data = mysqli_fetch_assoc($result);
+    $hash_password = $rows_data['user_password'];
+    var_dump($hash_password);
+    $rows_count = mysqli_num_rows($result);
+    if ($rows_count > 0) {
+        if (password_verify($user_password, $hash_password)) {
+            echo "<script>alert('Login Successfully')</script>";
+        } else {
+            echo "<script>alert('Invalid Password')</script>";
+        }
+    } else {
+        echo "<script>alert('Invalid Account')</script>";
+    }
+}
+
+?>
 <!doctype html>
 <html>
 
@@ -20,25 +47,22 @@
 <body class="flex justify-center items-center">
     <div class="design login-design">
         <h1 class="text-center text-3xl font-bold pt-7">Login</h1>
-        <form action="" method="post" enctype="multipart/form-data" autocomplete="off">
+        <form action="" method="post" autocomplete="off">
             <div class="custom pt-5">
                 <div class="mb-5">
                     <label class="mb-3 ps-2 font-bold" for="">Email</label>
-                    <input name="user_email" type="text" placeholder="Enter Your Email"
-                        class="border-black input input-bordered w-full  " required />
+                    <input name="user_email" type="text" placeholder="Enter Your Email" class="border-black input input-bordered w-full  " required />
                 </div>
                 <div class="mb-5">
                     <label class="mb-3 ps-2 font-bold" for="">Password</label>
-                    <input name="user_password" type="password" placeholder="Enter Your Password"
-                        class="border-black input input-bordered w-full  " required />
+                    <input name="user_password" type="password" placeholder="Enter Your Password" class="border-black input input-bordered w-full  " required />
                 </div>
                 <div class="text-left">
                     <a class="font-bold link" href="">Forgot Password</a>
                 </div>
                 <div>
                     <input name="user_login" type="submit" class="btn btn-accent font-bold" value="Login">
-                    <p class="font-bold pt-2">Don't have an account? <a class="text-red-700 link"
-                            href="user_register.php">Register</a>
+                    <p class="font-bold pt-2">Don't have an account? <a class="text-red-700 link" href="user_register.php">Register</a>
                     </p>
                     <p class="font-bold"><a href="../index.php">Back</a></p>
                 </div>
