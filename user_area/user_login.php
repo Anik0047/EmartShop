@@ -1,9 +1,11 @@
 <?php
 include('../database/connect.php');
 include('../functions/common_function.php');
+@session_start();
 ?>
 <?php
 if (isset($_POST['user_login'])) {
+    $user_name = $_POST['user_name'];
     $user_email = $_POST['user_email'];
     $user_password = $_POST['user_password'];
 

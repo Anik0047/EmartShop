@@ -1,3 +1,9 @@
+<?php
+// Include the database connection file
+include('../database/connect.php');
+session_start();
+?>
+
 <div class="navbar bg-base-100 fixed top-0 z-40">
     <div class="navbar-start">
         <div class="dropdown">
@@ -65,26 +71,49 @@
             </div>
             <!-- User profile icon -->
             <div class="dropdown dropdown-end">
-                <div>
-                    <a class="btn btn-ghost" href="./user_area/user_login.php">Login</a>
-                </div>
-                <!-- <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
-                    <div class="w-10 rounded-full">
-                        <img alt="Tailwind CSS Navbar component" src="images/logo.png" />
-                    </div>
-                </div>
+                <?php
 
-                <ul tabindex="0"
-                    class="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+
+                if (!isset($_SESSION['user_email'])) {
+                    echo "<div>
+                    <a class='btn btn-ghost' href='./user_area/user_login.php'>Login</a>
+                </div>";
+                } else {
+                    $email = $_SESSION['user_email'];
+                    $select_query = "SELECT * from `user_table` where user_email='$email'";
+                    $result = mysqli_query($conn, $select_query);
+                    $row_data = mysqli_fetch_assoc($result);
+                    $user_image = $row_data['user_image'];
+
+
+                    echo "<div tabindex='0' role='button' class='btn btn-ghost btn-circle avatar'>
+                    <div class='w-10 rounded-full'>
+                    <img src='./user_area/user_profile_image/$user_image' />
+                </div>
+                </div>
+                
+
+                <ul tabindex='0'
+                    class='mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52'>
                     <li>
-                        <a class="justify-between">
+                        <a class='justify-between'>
                             Profile
-                            <span class="badge">New</span>
+                            <span class='badge'>New</span>
                         </a>
                     </li>
-                    <li><a>Settings</a></li>
-                    <li><a>Logout</a></li>
-                </ul> -->
+                    <li><a href='./user_area/logout.php'>Logout</a></li>
+                </ul>";
+                }
+                ?>
+
+
+
+
+
+
+
+
+
             </div>
         </div>
     </div>

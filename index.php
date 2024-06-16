@@ -2,6 +2,7 @@
 // Include the database connection file
 include('database/connect.php');
 include('functions/common_function.php');
+// session_start();
 ?>
 <!doctype html>
 <html>
