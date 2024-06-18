@@ -73,3 +73,16 @@ if ($result_query) {
     echo "<script>alert('Orders are submitted successfully')</script>";
     echo "<script>window.open('user_dashboard.php','_self')</script>";
 }
+
+
+// orders pending
+
+$insert_pending_orders = "INSERT into `orders_pending` (user_id,invoice_number,product_id,quantity,order_status) values ($user_id,$invoice_number,$product_id,$quantity,'$status')";
+
+$result_pending_query = mysqli_query($conn, $insert_pending_orders);
+
+
+// delete items from cart
+
+$empty_cart = "DELETE from `cart_details` where ip_address='$ip_address'";
+$result_delete = mysqli_query($conn, $empty_cart);

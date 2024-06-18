@@ -324,7 +324,7 @@ function add_to_cart()
                     });
                 </script>";
         } else {
-            $insert_query = "INSERT INTO `cart_details` (product_id, ip_address, quantity) VALUES ($get_product_id, '$ip', 0)";
+            $insert_query = "INSERT INTO `cart_details` (product_id, ip_address, quantity) VALUES ($get_product_id, '$ip', 1)";
             $result = mysqli_query($conn, $insert_query);
             echo "<script>
                     document.addEventListener('DOMContentLoaded', function() {
