@@ -22,7 +22,7 @@ session_start();
         </div>
         <!-- Brand logo and name -->
         <div class="flex items-center">
-            <img class="w-20 md:w-24" src="images/logo.png" alt="">
+            <img class="w-20 md:w-24" src="./images/logo.png" alt="">
             <a href="index.php" class="btn btn-ghost text-xl">Emart Shop</a>
         </div>
     </div>
@@ -93,9 +93,9 @@ session_start();
                 <ul tabindex='0'
                     class='mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52'>
                     <li>
-                        <a class='justify-between'>
+                        <a class='justify-between' href='user_area/user_dashboard.php'>
                             Profile
-                            <span class='badge'>New</span>
+                            
                         </a>
                     </li>
                     <li><a href='./user_area/logout.php'>Logout</a></li>
