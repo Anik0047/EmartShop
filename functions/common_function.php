@@ -391,3 +391,37 @@ function total_product_price()
     }
     echo $sub_total;
 }
+
+
+// get user order details
+
+function user_order_details()
+{
+    global $conn;
+    $email = $_SESSION['user_email'];
+    $orders_details__query = "SELECT * from `user_table` where user_email='$email'";
+    $orders_details_result = mysqli_query($conn, $orders_details__query);
+    while ($row_query = mysqli_fetch_array($orders_details_result)) {
+        $user_id = $row_query['user_id'];
+        if (!isset($_GET['edit_account'])) {
+            if (!isset($_GET['my_orders'])) {
+                if (!isset($_GET['delete_account'])) {
+                    $get_orders = "SELECT * from `user_orders` where user_id=$user_id and order_status='pending'";
+                    $result_orders_query = mysqli_query($conn, $get_orders);
+                    $row_count = mysqli_num_rows($result_orders_query);
+                    if ($row_count > 0) {
+                        echo "<div class='text-center mt-28'>
+                <h3 class='text-3xl mb-10'>You have <span class='text-4xl font-bold'>$row_count</span> pending orders</h3>
+                <a class='text-xl link' href='profile.php?my_orders'>Order Details</a>
+            </div>";
+                    } else {
+                        echo "<div class='text-center mt-28'>
+                <h3 class='text-3xl mb-10'>You have zero pending orders</h3>
+                <a class='text-xl link' href='../index.php'>Explore products</a>
+            </div>";
+                    }
+                }
+            }
+        }
+    }
+}

@@ -149,7 +149,9 @@ session_start();
                 <li class="mb-5"><a class="text-xl font-bold" href="logout.php">Logout</a></li>
             </ul>
         </div>
-        <div class="col-span-4 border border-black">02</div>
+        <div class="col-span-4 border border-black">
+            <?php user_order_details(); ?>
+        </div>
     </div>
 </body>
 
