@@ -13,6 +13,27 @@ session_start();
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.2/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+    @keyframes bounce-once {
+
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+
+    .hover\:bounce-once:hover {
+        animation: bounce-once 0.5s ease;
+    }
+
+    .custom {
+        margin-left: 800px;
+    }
+    </style>
 </head>
 
 <body>
@@ -150,7 +171,13 @@ session_start();
             </ul>
         </div>
         <div class="col-span-4 border border-black">
-            <?php user_order_details(); ?>
+            <?php
+            user_order_details();
+            if (isset($_GET['edit_account'])) {
+                include('edit_account.php');
+            }
+
+            ?>
         </div>
     </div>
 </body>
