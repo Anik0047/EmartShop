@@ -21,12 +21,15 @@ session_start();
             <div class="dropdown">
                 <!-- Dropdown button for mobile view -->
                 <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h8m-8 6h16" />
                     </svg>
                 </div>
                 <!-- Dropdown menu for mobile view -->
-                <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                <ul tabindex="0"
+                    class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                     <li><a>Products</a></li>
                     <li><a>About US</a></li>
                     <li><a>Contact</a></li>
@@ -50,7 +53,8 @@ session_start();
             <!-- Search bar -->
             <div class="flex">
                 <form method="get" action="../search_product.php">
-                    <input name="search_field" type="search" placeholder="Search" class="input input-bordered w-24 md:w-auto" />
+                    <input name="search_field" type="search" placeholder="Search"
+                        class="input input-bordered w-24 md:w-auto" />
                     <input class="mx-5" type="submit" name="search_button" value="search">
                 </form>
             </div>
@@ -59,8 +63,10 @@ session_start();
                     <!-- Shopping cart icon with notification badge -->
                     <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
                         <div class="indicator">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                             </svg>
                             <span class="badge badge-sm indicator-item"><?php showing_cart_item(); ?></span>
                         </div>
@@ -124,13 +130,23 @@ session_start();
     <div class="grid grid-cols-5 gap-4 mt-40">
         <div class="border border-black text-center">
             <ul>
-                <li class="mb-5"><img class="w-56 mx-auto" src="../images/logo.png" alt=""></li>
-                <li class="mb-5"><a class="text-xl font-bold" href="">My Profile</a></li>
-                <li class="mb-5"><a class="text-xl font-bold" href="">Pending Orders</a></li>
-                <li class="mb-5"><a class="text-xl font-bold" href="">My Orders</a></li>
-                <li class="mb-5"><a class="text-xl font-bold" href="">Edit Account</a></li>
-                <li class="mb-5"><a class="text-xl font-bold" href="">Delete Account</a></li>
-                <li class="mb-5"><a class="text-xl font-bold" href="">Logout</a></li>
+                <?php
+                $email = $_SESSION['user_email'];
+                $select_query = "SELECT * from `user_table` where user_email='$email'";
+                $result = mysqli_query($conn, $select_query);
+                $row_data = mysqli_fetch_assoc($result);
+                $user_image = $row_data['user_image'];
+                echo "<li class='mb-5'><img class='w-56 mx-auto' src='../user_area/user_profile_image/$user_image' alt=''></li>";
+                ?>
+
+                <li class="mb-5"><a class="text-xl font-bold" href="user_dashboard.php">My Profile</a></li>
+                <li class="mb-5"><a class="text-xl font-bold" href="user_dashboard.php">Pending Orders</a></li>
+                <li class="mb-5"><a class="text-xl font-bold" href="user_dashboard.php?my_orders">My Orders</a></li>
+                <li class="mb-5"><a class="text-xl font-bold" href="user_dashboard.php?edit_account">Edit Account</a>
+                </li>
+                <li class="mb-5"><a class="text-xl font-bold" href="user_dashboard.php?delete_account">Delete
+                        Account</a></li>
+                <li class="mb-5"><a class="text-xl font-bold" href="logout.php">Logout</a></li>
             </ul>
         </div>
         <div class="col-span-4 border border-black">02</div>
