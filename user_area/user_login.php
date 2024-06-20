@@ -3,12 +3,11 @@ include('../database/connect.php');
 include('../functions/common_function.php');
 @session_start();
 ?>
+
 <?php
 if (isset($_POST['user_login'])) {
-    $user_name = $_POST['user_name'];
     $user_email = $_POST['user_email'];
     $user_password = $_POST['user_password'];
-
 
     $select_query = "SELECT * from `user_table` where user_email='$user_email'";
     $result = mysqli_query($conn, $select_query);
@@ -18,23 +17,19 @@ if (isset($_POST['user_login'])) {
     $rows_count = mysqli_num_rows($result);
     $user_ip = getIPAddress();
 
-
     $select_cart_query = "SELECT * from `cart_details` where ip_address='$user_ip'";
     $select_result = mysqli_query($conn, $select_cart_query);
     $cart_rows_count = mysqli_num_rows($select_result);
 
-
     if ($rows_count > 0) {
-        $_SESSION['user_email'] = $user_email;
         if (password_verify($user_password, $hash_password)) {
-            if ($rows_count == 1 and $cart_rows_count == 0) {
-                $_SESSION['user_email'] = $user_email;
-                echo "<script>alert('Login Successfully')</script>";
-                echo "<script>window.open('user_dashboard.php','_self')</script>";
+            $_SESSION['user_email'] = $user_email;
+            echo "<script>alert('Login Successfully')</script>";
+
+            if ($rows_count == 1 && $cart_rows_count == 0) {
+                echo "<script>window.open('user_dashboard.php', '_self')</script>";
             } else {
-                $_SESSION['user_email'] = $user_email;
-                echo "<script>alert('Login Successfully')</script>";
-                echo "<script>window.open('payment.php','_self')</script>";
+                echo "<script>window.open('payment.php', '_self')</script>";
             }
         } else {
             echo "<script>alert('Invalid Password')</script>";
@@ -43,8 +38,8 @@ if (isset($_POST['user_login'])) {
         echo "<script>alert('Invalid Account')</script>";
     }
 }
-
 ?>
+
 <!doctype html>
 <html>
 
