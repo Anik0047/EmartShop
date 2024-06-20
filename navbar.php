@@ -70,7 +70,7 @@ session_start();
                 <?php
 
 
-                if (!isset($_SESSION['user_email'])) {
+                /*if (!isset($_SESSION['user_email'])) {
                     echo "<div>
                     <a class='btn btn-ghost' href='./user_area/user_login.php'>Login</a>
                 </div>";
@@ -101,9 +101,35 @@ session_start();
                     <li><a href='./user_area/logout.php'>Logout</a></li>
                 </ul>";
                 }
+                */
                 ?>
 
+                <?php
+                if (!isset($_SESSION['user_email'])) {
+                    echo "<div><a class='btn btn-ghost' href='./user_area/user_login.php'>Login</a></div>";
+                } else {
+                    $email = $_SESSION['user_email'];
+                    $select_query = "SELECT * FROM `user_table` WHERE user_email='$email'";
+                    $result = mysqli_query($conn, $select_query);
 
+                    if ($result && mysqli_num_rows($result) > 0) {
+                        $row_data = mysqli_fetch_assoc($result);
+                        $user_image = $row_data['user_image'];
+
+                        echo "<div tabindex='0' role='button' class='btn btn-ghost btn-circle avatar'>
+                                    <div class='w-10 rounded-full'>
+                                        <img src='./user_area/user_profile_image/$user_image' />
+                                    </div>
+                                  </div>
+                                  <ul tabindex='0' class='mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52'>
+                                    <li><a class='justify-between' href='./user_area/user_dashboard.php'>Profile</a></li>
+                                    <li><a href='./user_area/logout.php'>Logout</a></li>
+                                  </ul>";
+                    } else {
+                        echo "<script>alert('User not found. Please log in again.'); window.location.href='../user_area/user_login.php';</script>";
+                    }
+                }
+                ?>
 
 
 

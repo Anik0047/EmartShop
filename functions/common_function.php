@@ -404,7 +404,7 @@ function user_order_details()
     while ($row_query = mysqli_fetch_array($orders_details_result)) {
         $user_id = $row_query['user_id'];
         if (!isset($_GET['edit_account'])) {
-            if (!isset($_GET['my_orders'])) {
+            if (!isset($_GET['user_orders'])) {
                 if (!isset($_GET['delete_account'])) {
                     $get_orders = "SELECT * from `user_orders` where user_id=$user_id and order_status='pending'";
                     $result_orders_query = mysqli_query($conn, $get_orders);
