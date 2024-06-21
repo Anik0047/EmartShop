@@ -51,12 +51,12 @@
                 </div>
 
                 <div class="collapse collapse-plus mt-10">
-                    <input type="radio" name="my-accordion-3" checked="checked" />
+                    <input type="radio" name="my-accordion-3" />
                     <div class="collapse-title text-xl font-medium">
                         View Products
                     </div>
                     <div class="collapse-content text-lg">
-                        <a class="block py-5" href=""><i class="fa-solid fa-bolt pe-5"></i>Products</a>
+                        <a class="block py-5" href="index.php?view_products"><i class="fa-solid fa-bolt pe-5"></i>Products</a>
                         <a class="block py-5" href=""><i class="fa-solid fa-bolt pe-5"></i>Categories</a>
                         <a class="block py-5" href=""><i class="fa-solid fa-bolt pe-5"></i>Brands</a>
                     </div>
