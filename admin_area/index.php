@@ -1,3 +1,9 @@
+<?php
+include('../database/connect.php');
+include('../functions/common_function.php');
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +17,9 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.11.1/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -38,6 +46,9 @@
                 if (isset($_GET['insert_product'])) {
                     include('./admin_page/insert_product.php');
                 }
+                if (isset($_GET['view_products'])) {
+                    include('./admin_page/view_products.php');
+                }
                 ?>
             </div>
         </div>
@@ -56,7 +67,8 @@
                         View Products
                     </div>
                     <div class="collapse-content text-lg">
-                        <a class="block py-5" href="index.php?view_products"><i class="fa-solid fa-bolt pe-5"></i>Products</a>
+                        <a class="block py-5" href="index.php?view_products"><i
+                                class="fa-solid fa-bolt pe-5"></i>Products</a>
                         <a class="block py-5" href=""><i class="fa-solid fa-bolt pe-5"></i>Categories</a>
                         <a class="block py-5" href=""><i class="fa-solid fa-bolt pe-5"></i>Brands</a>
                     </div>
@@ -67,9 +79,12 @@
                         Insert Products
                     </div>
                     <div class="collapse-content text-lg">
-                        <a class="block py-5" href="index.php?insert_product"><i class="fa-solid fa-bolt pe-5"></i>Products</a>
-                        <a class="block py-5" href="index.php?insert_categories"><i class="fa-solid fa-bolt pe-5"></i>Categories</a>
-                        <a class="block py-5" href="index.php?insert_brands"><i class="fa-solid fa-bolt pe-5"></i>Brands</a>
+                        <a class="block py-5" href="index.php?insert_product"><i
+                                class="fa-solid fa-bolt pe-5"></i>Products</a>
+                        <a class="block py-5" href="index.php?insert_categories"><i
+                                class="fa-solid fa-bolt pe-5"></i>Categories</a>
+                        <a class="block py-5" href="index.php?insert_brands"><i
+                                class="fa-solid fa-bolt pe-5"></i>Brands</a>
                     </div>
                 </div>
                 <div class="collapse collapse-plus">
