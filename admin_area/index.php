@@ -17,8 +17,33 @@ include('../functions/common_function.php');
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.11.1/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+    @keyframes bounce-once {
+
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+
+    .hover\:bounce-once:hover {
+        animation: bounce-once 0.5s ease;
+    }
+
+    .custom {
+        margin-left: 800px;
+    }
+    </style>
 </head>
 
 <body>
@@ -69,7 +94,8 @@ include('../functions/common_function.php');
                         View Products
                     </div>
                     <div class="collapse-content text-lg">
-                        <a class="block py-5" href="index.php?view_products"><i class="fa-solid fa-bolt pe-5"></i>Products</a>
+                        <a class="block py-5" href="index.php?view_products"><i
+                                class="fa-solid fa-bolt pe-5"></i>Products</a>
                         <a class="block py-5" href=""><i class="fa-solid fa-bolt pe-5"></i>Categories</a>
                         <a class="block py-5" href=""><i class="fa-solid fa-bolt pe-5"></i>Brands</a>
                     </div>
@@ -80,9 +106,12 @@ include('../functions/common_function.php');
                         Insert Products
                     </div>
                     <div class="collapse-content text-lg">
-                        <a class="block py-5" href="index.php?insert_product"><i class="fa-solid fa-bolt pe-5"></i>Products</a>
-                        <a class="block py-5" href="index.php?insert_categories"><i class="fa-solid fa-bolt pe-5"></i>Categories</a>
-                        <a class="block py-5" href="index.php?insert_brands"><i class="fa-solid fa-bolt pe-5"></i>Brands</a>
+                        <a class="block py-5" href="index.php?insert_product"><i
+                                class="fa-solid fa-bolt pe-5"></i>Products</a>
+                        <a class="block py-5" href="index.php?insert_categories"><i
+                                class="fa-solid fa-bolt pe-5"></i>Categories</a>
+                        <a class="block py-5" href="index.php?insert_brands"><i
+                                class="fa-solid fa-bolt pe-5"></i>Brands</a>
                     </div>
                 </div>
                 <div class="collapse collapse-plus">
