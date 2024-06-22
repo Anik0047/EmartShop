@@ -75,6 +75,12 @@ include('../functions/common_function.php');
                 if (isset($_GET['delete_products'])) {
                     include('./admin_page/delete_products.php');
                 }
+                if (isset($_GET['view_categories'])) {
+                    include('./admin_page/view_categories.php');
+                }
+                if (isset($_GET['view_brands'])) {
+                    include('./admin_page/view_brands.php');
+                }
                 ?>
             </div>
         </div>
@@ -94,8 +100,8 @@ include('../functions/common_function.php');
                     </div>
                     <div class="collapse-content text-lg">
                         <a class="block py-5" href="index.php?view_products"><i class="fa-solid fa-bolt pe-5"></i>Products</a>
-                        <a class="block py-5" href=""><i class="fa-solid fa-bolt pe-5"></i>Categories</a>
-                        <a class="block py-5" href=""><i class="fa-solid fa-bolt pe-5"></i>Brands</a>
+                        <a class="block py-5" href="index.php?view_categories"><i class="fa-solid fa-bolt pe-5"></i>Categories</a>
+                        <a class="block py-5" href="index.php?view_brands"><i class="fa-solid fa-bolt pe-5"></i>Brands</a>
                     </div>
                 </div>
                 <div class="collapse collapse-plus">
