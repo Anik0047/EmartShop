@@ -51,7 +51,7 @@
                 <td>$row_count</td>
                 <td>$status</td>
                 <th>
-                    <a href='./index.php?edit_products' class='btn btn-ghost btn-xs'><i class='fa-solid fa-pen-to-square text-lg'></i></a>
+                    <a href='./index.php?edit_products=$product_id' class='btn btn-ghost btn-xs'><i class='fa-solid fa-pen-to-square text-lg'></i></a>
                 </th>
                 <th>
                     <a class='btn btn-ghost btn-xs'><i class='fa-solid fa-trash text-lg'></i></a>
