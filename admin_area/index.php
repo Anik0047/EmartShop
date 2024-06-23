@@ -17,28 +17,32 @@ include('../functions/common_function.php');
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.11.1/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        @keyframes bounce-once {
+    @keyframes bounce-once {
 
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
+        0%,
+        100% {
+            transform: translateY(0);
         }
 
-        .hover\:bounce-once:hover {
-            animation: bounce-once 0.5s ease;
+        50% {
+            transform: translateY(-10px);
         }
+    }
 
-        .custom {
-            margin-left: 800px;
-        }
+    .hover\:bounce-once:hover {
+        animation: bounce-once 0.5s ease;
+    }
+
+    .custom {
+        margin-left: 800px;
+    }
     </style>
 </head>
 
@@ -81,6 +85,36 @@ include('../functions/common_function.php');
                 if (isset($_GET['view_brands'])) {
                     include('./admin_page/view_brands.php');
                 }
+                if (isset($_GET['edit_category'])) {
+                    include('./admin_page/edit_category.php');
+                }
+                if (isset($_GET['edit_brands'])) {
+                    include('./admin_page/edit_brands.php');
+                }
+                if (isset($_GET['delete_category'])) {
+                    include('./admin_page/delete_category.php');
+                }
+                if (isset($_GET['delete_brands'])) {
+                    include('./admin_page/delete_brands.php');
+                }
+                if (isset($_GET['all_orders'])) {
+                    include('./admin_page/all_orders.php');
+                }
+                if (isset($_GET['delete_orders'])) {
+                    include('./admin_page/delete_orders.php');
+                }
+                if (isset($_GET['all_payment'])) {
+                    include('./admin_page/all_payment.php');
+                }
+                if (isset($_GET['delete_payments'])) {
+                    include('./admin_page/delete_payments.php');
+                }
+                if (isset($_GET['all_user'])) {
+                    include('./admin_page/all_user.php');
+                }
+                if (isset($_GET['delete_user'])) {
+                    include('./admin_page/delete_user.php');
+                }
                 ?>
             </div>
         </div>
@@ -99,9 +133,12 @@ include('../functions/common_function.php');
                         View Products
                     </div>
                     <div class="collapse-content text-lg">
-                        <a class="block py-5" href="index.php?view_products"><i class="fa-solid fa-bolt pe-5"></i>Products</a>
-                        <a class="block py-5" href="index.php?view_categories"><i class="fa-solid fa-bolt pe-5"></i>Categories</a>
-                        <a class="block py-5" href="index.php?view_brands"><i class="fa-solid fa-bolt pe-5"></i>Brands</a>
+                        <a class="block py-5" href="index.php?view_products"><i
+                                class="fa-solid fa-bolt pe-5"></i>Products</a>
+                        <a class="block py-5" href="index.php?view_categories"><i
+                                class="fa-solid fa-bolt pe-5"></i>Categories</a>
+                        <a class="block py-5" href="index.php?view_brands"><i
+                                class="fa-solid fa-bolt pe-5"></i>Brands</a>
                     </div>
                 </div>
                 <div class="collapse collapse-plus">
@@ -110,9 +147,12 @@ include('../functions/common_function.php');
                         Insert Products
                     </div>
                     <div class="collapse-content text-lg">
-                        <a class="block py-5" href="index.php?insert_product"><i class="fa-solid fa-bolt pe-5"></i>Products</a>
-                        <a class="block py-5" href="index.php?insert_categories"><i class="fa-solid fa-bolt pe-5"></i>Categories</a>
-                        <a class="block py-5" href="index.php?insert_brands"><i class="fa-solid fa-bolt pe-5"></i>Brands</a>
+                        <a class="block py-5" href="index.php?insert_product"><i
+                                class="fa-solid fa-bolt pe-5"></i>Products</a>
+                        <a class="block py-5" href="index.php?insert_categories"><i
+                                class="fa-solid fa-bolt pe-5"></i>Categories</a>
+                        <a class="block py-5" href="index.php?insert_brands"><i
+                                class="fa-solid fa-bolt pe-5"></i>Brands</a>
                     </div>
                 </div>
                 <div class="collapse collapse-plus">
@@ -121,12 +161,14 @@ include('../functions/common_function.php');
                         All Orders
                     </div>
                     <div class="collapse-content text-lg">
-                        <a class="block py-5" href=""><i class="fa-solid fa-bolt pe-5"></i>Orders</a>
-                        <a class="block py-5" href=""><i class="fa-solid fa-bolt pe-5"></i>Payments</a>
+                        <a class="block py-5" href="index.php?all_orders"><i
+                                class="fa-solid fa-bolt pe-5"></i>Orders</a>
+                        <a class="block py-5" href="index.php?all_payment"><i
+                                class="fa-solid fa-bolt pe-5"></i>Payments</a>
                     </div>
                 </div>
 
-                <li><a class="text-lg"><i class="fa-solid fa-bomb pe-5"></i>Users</a></li>
+                <li><a href="index.php?all_user" class="text-lg"><i class="fa-solid fa-bomb pe-5"></i>Users</a></li>
                 <li><a class="text-lg"><i class="fa-solid fa-bomb pe-5"></i>Logout</a></li>
             </ul>
         </div>

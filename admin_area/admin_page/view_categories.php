@@ -23,9 +23,9 @@
                 echo "<tr class='hover'>
                 <th>$number</th>
                 <td>$category_title</td>
-                <th><a href='' class='btn btn-ghost btn-xs'><i class='fa-solid fa-pen-to-square text-lg'></i></a></th>
+                <th><a href='./index.php?edit_category=$category_id' class='btn btn-ghost btn-xs'><i class='fa-solid fa-pen-to-square text-lg'></i></a></th>
                 <th>
-                    <a href='' class='btn btn-ghost btn-xs'><i class='fa-solid fa-trash text-lg'></i></a>
+                    <a href='./index.php?delete_category=$category_id' class='btn btn-ghost btn-xs'><i class='fa-solid fa-trash text-lg'></i></a>
                 </th>
             </tr>";
                 $number++;
