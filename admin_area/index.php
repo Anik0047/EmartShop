@@ -1,7 +1,7 @@
 <?php
 include('../database/connect.php');
 include('../functions/common_function.php');
-
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -17,32 +17,28 @@ include('../functions/common_function.php');
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.11.1/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-    @keyframes bounce-once {
+        @keyframes bounce-once {
 
-        0%,
-        100% {
-            transform: translateY(0);
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
         }
 
-        50% {
-            transform: translateY(-10px);
+        .hover\:bounce-once:hover {
+            animation: bounce-once 0.5s ease;
         }
-    }
 
-    .hover\:bounce-once:hover {
-        animation: bounce-once 0.5s ease;
-    }
-
-    .custom {
-        margin-left: 800px;
-    }
+        .custom {
+            margin-left: 800px;
+        }
     </style>
 </head>
 
@@ -52,12 +48,30 @@ include('../functions/common_function.php');
         <div class="drawer-content flex flex-col">
             <!-- Page content here -->
             <label for="my-drawer-2" class="btn btn-primary drawer-button lg:hidden">Open drawer</label>
-            <div class="flex justify-between  items-center bg-gray-300 md:p-8">
+            <div class="flex justify-between items-center bg-gray-300 md:p-8">
                 <h1 class="text-3xl"><a href="index.php">Admin Dashboard</a></h1>
-                <div class="flex items-center md:pe-10">
-                    <img class="w-16" src="../images/logo.png" alt="">
-                    <p class="text-lg md:ps-5">Anik Barua</p>
-                </div>
+                <?php
+                if (isset($_SESSION['admin_email'])) {
+                    $email = $_SESSION['admin_email'];
+                    $select_query = "SELECT * FROM `admin_table` WHERE admin_email='$email'";
+                    $result = mysqli_query($conn, $select_query);
+                    $row_data = mysqli_fetch_assoc($result);
+                    $admin_name = $row_data['admin_name'];
+                ?>
+                    <div class="flex items-center md:pe-10">
+                        <img class="w-16" src="../images/admin-pic.svg" alt="">
+                        <p class="text-lg md:ps-5"><?php echo $admin_name ?></p>
+                    </div>
+                <?php
+                } else {
+                ?>
+                    <div class="flex items-center md:pe-10">
+                        <p class="text-lg md:ps-5">Please <a href="./admin_page/admin_logout.php" class="text-blue-500">login</a> to
+                            access the dashboard</p>
+                    </div>
+                <?php
+                }
+                ?>
             </div>
             <div class="md:mt-10">
                 <?php
@@ -133,12 +147,9 @@ include('../functions/common_function.php');
                         View Products
                     </div>
                     <div class="collapse-content text-lg">
-                        <a class="block py-5" href="index.php?view_products"><i
-                                class="fa-solid fa-bolt pe-5"></i>Products</a>
-                        <a class="block py-5" href="index.php?view_categories"><i
-                                class="fa-solid fa-bolt pe-5"></i>Categories</a>
-                        <a class="block py-5" href="index.php?view_brands"><i
-                                class="fa-solid fa-bolt pe-5"></i>Brands</a>
+                        <a class="block py-5" href="index.php?view_products"><i class="fa-solid fa-bolt pe-5"></i>Products</a>
+                        <a class="block py-5" href="index.php?view_categories"><i class="fa-solid fa-bolt pe-5"></i>Categories</a>
+                        <a class="block py-5" href="index.php?view_brands"><i class="fa-solid fa-bolt pe-5"></i>Brands</a>
                     </div>
                 </div>
                 <div class="collapse collapse-plus">
@@ -147,12 +158,9 @@ include('../functions/common_function.php');
                         Insert Products
                     </div>
                     <div class="collapse-content text-lg">
-                        <a class="block py-5" href="index.php?insert_product"><i
-                                class="fa-solid fa-bolt pe-5"></i>Products</a>
-                        <a class="block py-5" href="index.php?insert_categories"><i
-                                class="fa-solid fa-bolt pe-5"></i>Categories</a>
-                        <a class="block py-5" href="index.php?insert_brands"><i
-                                class="fa-solid fa-bolt pe-5"></i>Brands</a>
+                        <a class="block py-5" href="index.php?insert_product"><i class="fa-solid fa-bolt pe-5"></i>Products</a>
+                        <a class="block py-5" href="index.php?insert_categories"><i class="fa-solid fa-bolt pe-5"></i>Categories</a>
+                        <a class="block py-5" href="index.php?insert_brands"><i class="fa-solid fa-bolt pe-5"></i>Brands</a>
                     </div>
                 </div>
                 <div class="collapse collapse-plus">
@@ -161,15 +169,20 @@ include('../functions/common_function.php');
                         All Orders
                     </div>
                     <div class="collapse-content text-lg">
-                        <a class="block py-5" href="index.php?all_orders"><i
-                                class="fa-solid fa-bolt pe-5"></i>Orders</a>
-                        <a class="block py-5" href="index.php?all_payment"><i
-                                class="fa-solid fa-bolt pe-5"></i>Payments</a>
+                        <a class="block py-5" href="index.php?all_orders"><i class="fa-solid fa-bolt pe-5"></i>Orders</a>
+                        <a class="block py-5" href="index.php?all_payment"><i class="fa-solid fa-bolt pe-5"></i>Payments</a>
                     </div>
                 </div>
 
                 <li><a href="index.php?all_user" class="text-lg"><i class="fa-solid fa-bomb pe-5"></i>Users</a></li>
-                <li><a class="text-lg"><i class="fa-solid fa-bomb pe-5"></i>Logout</a></li>
+                <?php
+                if (!isset($_SESSION['admin_email'])) {
+                    echo "<li><a href='./admin_page/admin_logout.php' class='text-lg'><i
+                            class='fa-solid fa-bomb pe-5'></i>Login</a></li>";
+                } else {
+                    echo "<li><a href='./admin_page/admin_logout.php' class='text-lg'><i class='fa-solid fa-bomb pe-5'></i>Logout</a></li>";
+                }
+                ?>
             </ul>
         </div>
     </div>
