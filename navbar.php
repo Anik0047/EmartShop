@@ -18,9 +18,9 @@ include('../database/connect.php');
             </div>
             <!-- Dropdown menu for mobile view -->
             <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                <li><a>Products</a></li>
-                <li><a>About US</a></li>
-                <li><a>Contact</a></li>
+                <li><a href="all_products.php">Products</a></li>
+                <li><a href="./coming-soon-page/about.php">About US</a></li>
+                <li><a href="./coming-soon-page/contact.php">Contact</a></li>
             </ul>
         </div>
         <!-- Brand logo and name -->
@@ -33,8 +33,8 @@ include('../database/connect.php');
         <!-- Navbar menu for desktop view -->
         <ul class="menu menu-horizontal px-1">
             <li><a href="all_products.php">Products</a></li>
-            <li><a>About US</a></li>
-            <li><a>Contact</a></li>
+            <li><a href="./coming-soon-page/about.php">About US</a></li>
+            <li><a href="./coming-soon-page/contact.php">Contact</a></li>
         </ul>
     </div>
     <div class="navbar-end flex-none gap-2">
