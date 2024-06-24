@@ -13,7 +13,7 @@
         </thead>
         <tbody>
             <?php
-            $select_category = "SELECT * FROM `Categories`";
+            $select_category = "SELECT * FROM `categories`";
             $result_category = mysqli_query($conn, $select_category);
             $number = 1;
             while ($row_data = mysqli_fetch_assoc($result_category)) {
