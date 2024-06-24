@@ -10,6 +10,7 @@ include('functions/common_function.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/fav.ico" type="image/x-icon">
     <!-- Include Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Include DaisyUI CSS -->
@@ -21,6 +22,27 @@ include('functions/common_function.php');
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Include SweetAlert2 CSS for styling the alert -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <style>
+        @keyframes bounce-once {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .hover\:bounce-once:hover {
+            animation: bounce-once 0.5s ease;
+        }
+
+        .custom {
+            margin-left: 800px;
+        }
+    </style>
 </head>
 
 <body>
@@ -31,11 +53,11 @@ include('functions/common_function.php');
     <!-- End Navbar section -->
 
     <!-- Banner section -->
-    <section class="flex md:flex-row flex-col justify-evenly items-center mt-10 md:my-56">
+    <section class="flex md:flex-row flex-col justify-evenly items-center mt-10 md:my-32">
         <!-- Welcome message -->
         <div class="brand_detail">
             <h1 class="text-3xl md:text-4xl tracking-wide md:tracking-wider leading-relaxed md:leading-loose">Welcome to
-                <span class="text-4xl md:text-6xl italic text-orange-500">Emart Shop</span>
+                <span class="text-4xl md:text-6xl font-bold italic text-blue-500">Emart Shop</span>
             </h1>
             <h1 class="text-3xl md:text-4xl tracking-wide md:tracking-wider leading-relaxed md:leading-loose">Your
                 One-Stop Online Store
@@ -61,7 +83,7 @@ include('functions/common_function.php');
     <section>
         <div>
             <!-- Section title -->
-            <p class="text-4xl md:ms-32 md:my-32 md:ps-2 border-black border-b-2 w-40 rounded-bl-lg">Products</p>
+            <p class="text-4xl md:ms-28 md:my-24 md:ps-2 border-black border-b-2 w-40 rounded-bl-lg">Products</p>
         </div>
         <div class="flex justify-around mx-5 my-10">
             <!-- Sidebar with brands and categories -->
@@ -96,6 +118,18 @@ include('functions/common_function.php');
         </div>
     </section>
     <!-- End Products section -->
+
+    <!--  Footer section -->
+
+    <section class="relative mt-52">
+        <?php
+        include('./footer.php');
+        ?>
+    </section>
+
+    <!-- End Footer section -->
+
+
 
     <!-- Include Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>

@@ -59,14 +59,14 @@ function getProducts()
                 $brand_id = $row_data['brands_id'];
 
                 echo "
-                        <div class='card w-96 h-min bg-base-100 drop-shadow-2xl'>
+                        <div class='card w-96 h-min shadow-2xl shadow-cyan-300'>
                             <figure><img src='./admin_area/product_images/$product_image_1' alt='Shoes' /></figure>
                             <div class='card-body'>
                                 <h2 class='card-title'>$product_name</h2>
                                 <p class='text-lg'>Tk <span class='text-xl'>$product_price</span></p>
-                                <div class='card-actions justify-start'>
-                                    <a href='index.php?add_to_cart=$product_id' class='btn btn-primary'>Add to cart</a>
-                                    <a href='product_details.php?product_id=$product_id' class='btn btn-primary'>Details</a>
+                                <div class='card-actions justify-start mt-5'>
+                                    <button class='px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:shadow-lg focus:outline-none hover:bounce-once'><a href='index.php?add_to_cart=$product_id'>Add to cart</a></button>
+                                    <button class='px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:shadow-lg focus:outline-none hover:bounce-once'><a href='product_details.php?product_id=$product_id'>Details</a></button>
                                 </div>
                             </div>
                         </div>
@@ -92,14 +92,14 @@ function get_Specific_Categories()
             $category_id = $row_data['category_id'];
 
             echo "
-                        <div class='card w-96 h-min bg-base-100 drop-shadow-2xl'>
+                        <div class='card w-96 h-min shadow-2xl shadow-cyan-300'>
                             <figure><img src='./admin_area/product_images/$product_image_1' alt='Shoes' /></figure>
                             <div class='card-body'>
                                 <h2 class='card-title'>$product_name</h2>
                                 <p class='text-lg'>Tk <span class='text-xl'>$product_price</span></p>
-                                <div class='card-actions justify-start'>
-                                    <a href='index.php?add_to_cart=$product_id' class='btn btn-primary'>Add to cart</a>
-                                    <a href='product_details.php?product_id=$product_id' class='btn btn-primary'>Details</a>
+                                <div class='card-actions justify-start mt-5'>
+                                    <button class='px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:shadow-lg focus:outline-none hover:bounce-once'><a href='index.php?add_to_cart=$product_id'>Add to cart</a></button>
+                                    <button class='px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:shadow-lg focus:outline-none hover:bounce-once'><a href='product_details.php?product_id=$product_id'>Details</a></button>
                                 </div>
                             </div>
                         </div>
@@ -107,6 +107,8 @@ function get_Specific_Categories()
         }
     }
 }
+
+
 
 function get_Specific_Brands()
 {
@@ -124,14 +126,14 @@ function get_Specific_Brands()
             $brand_id = $row_data['brands_id'];
 
             echo "
-                        <div class='card w-96 h-min bg-base-100 drop-shadow-2xl'>
+                        <div class='card w-96 h-min shadow-2xl shadow-cyan-300'>
                             <figure><img src='./admin_area/product_images/$product_image_1' alt='Shoes' /></figure>
                             <div class='card-body'>
                                 <h2 class='card-title'>$product_name</h2>
                                 <p class='text-lg'>Tk <span class='text-xl'>$product_price</span></p>
-                                <div class='card-actions justify-start'>
-                                    <a href='index.php?add_to_cart=$product_id' class='btn btn-primary'>Add to cart</a>
-                                    <a href='product_details.php?product_id=$product_id' class='btn btn-primary'>Details</a>
+                                <div class='card-actions justify-start mt-5'>
+                                    <button class='px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:shadow-lg focus:outline-none hover:bounce-once'><a href='index.php?add_to_cart=$product_id'>Add to cart</a></button>
+                                    <button class='px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:shadow-lg focus:outline-none hover:bounce-once'><a href='product_details.php?product_id=$product_id'>Details</a></button>
                                 </div>
                             </div>
                         </div>
@@ -161,14 +163,14 @@ function search_product()
         $brand_id = $row_data['brands_id'];
 
         echo "
-                        <div class='card w-96 h-min bg-base-100 drop-shadow-2xl'>
+                        <div class='card w-96 h-min shadow-2xl shadow-cyan-300'>
                             <figure><img src='./admin_area/product_images/$product_image_1' alt='Shoes' /></figure>
                             <div class='card-body'>
                                 <h2 class='card-title'>$product_name</h2>
                                 <p class='text-lg'>Tk <span class='text-xl'>$product_price</span></p>
-                                <div class='card-actions justify-start'>
-                                    <a href='index.php?add_to_cart=$product_id' class='btn btn-primary'>Add to cart</a>
-                                    <a href='product_details.php?product_id=$product_id' class='btn btn-primary'>Details</a>
+                                <div class='card-actions justify-start mt-5'>
+                                    <button class='px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:shadow-lg focus:outline-none hover:bounce-once'><a href='index.php?add_to_cart=$product_id'>Add to cart</a></button>
+                                    <button class='px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:shadow-lg focus:outline-none hover:bounce-once'><a href='product_details.php?product_id=$product_id'>Details</a></button>
                                 </div>
                             </div>
                         </div>
@@ -196,14 +198,14 @@ function get_all_product()
                 $brand_id = $row_data['brands_id'];
 
                 echo "
-                        <div class='card w-96 h-min bg-base-100 drop-shadow-2xl'>
+                        <div class='card w-96 h-min shadow-2xl shadow-cyan-300'>
                             <figure><img src='./admin_area/product_images/$product_image_1' alt='Shoes' /></figure>
                             <div class='card-body'>
                                 <h2 class='card-title'>$product_name</h2>
                                 <p class='text-lg'>Tk <span class='text-xl'>$product_price</span></p>
-                                <div class='card-actions justify-start'>
-                                    <a href='index.php?add_to_cart=$product_id' class='btn btn-primary'>Add to cart</a>
-                                    <a href='product_details.php?product_id=$product_id' class='btn btn-primary'>Details</a>
+                               <div class='card-actions justify-start mt-5'>
+                                    <button class='px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:shadow-lg focus:outline-none hover:bounce-once'><a href='index.php?add_to_cart=$product_id'>Add to cart</a></button>
+                                    <button class='px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:shadow-lg focus:outline-none hover:bounce-once'><a href='product_details.php?product_id=$product_id'>Details</a></button>
                                 </div>
                             </div>
                         </div>
@@ -242,7 +244,7 @@ function product_details()
                     echo "
                         <section class='my-32 mx-20 grid grid-cols-2'>
         <div class=''>
-            <div class='w-4/6 carousel rounded-box shadow-2xl shadow-cyan-500'>
+            <div class='w-4/6 carousel rounded-box shadow-2xl shadow-cyan-300'>
                 <div class='carousel-item w-full'>
                     <img src='./admin_area/product_images/$product_image_1' class='w-full' alt='Tailwind CSS Carousel component' />
                 </div>
