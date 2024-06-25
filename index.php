@@ -53,8 +53,7 @@ include('functions/common_function.php');
     <!-- End Navbar section -->
 
     <!-- Banner section -->
-    <section class="flex md:flex-row flex-col justify-evenly items-center mt-10 md:my-32">
-        <!-- Welcome message -->
+    <section class="flex md:flex-row flex-col justify-evenly items-center md:my-20">
         <div class="brand_detail">
             <h1 class="text-3xl md:text-4xl tracking-wide md:tracking-wider leading-relaxed md:leading-loose">Welcome to
                 <span class="text-4xl md:text-6xl font-bold italic text-blue-500">Emart Shop</span>
@@ -65,7 +64,7 @@ include('functions/common_function.php');
             <h1 class="text-3xl md:text-4xl tracking-wide md:tracking-wider leading-relaxed md:leading-loose">The Future
                 of Online Shopping</h1>
         </div>
-        <!-- Swiper slider for the banner -->
+
         <div class="body">
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
@@ -83,19 +82,11 @@ include('functions/common_function.php');
     <section>
         <div>
             <!-- Section title -->
-            <p class="text-4xl md:ms-28 md:my-24 md:ps-2 border-black border-b-2 w-40 rounded-bl-lg">Products</p>
+            <p class="text-4xl md:ms-10 md:my-24 md:ps-2 border-black border-b-2 w-40 rounded-bl-lg">Products</p>
         </div>
-        <div class="flex justify-around mx-5 my-10">
+        <div class="flex justify-around  my-10">
             <!-- Sidebar with brands and categories -->
-            <div class="w-72 text-center">
-                <div>
-                    <p class="text-2xl bg-slate-200 py-5">Brands</p>
-                    <div>
-                        <?php
-                        getBrands();
-                        ?>
-                    </div>
-                </div>
+            <div class="w-56 text-center">
                 <div>
                     <p class="text-2xl bg-slate-200 py-5">Categories</p>
                     <div>
@@ -104,9 +95,17 @@ include('functions/common_function.php');
                         ?>
                     </div>
                 </div>
+                <div>
+                    <p class="text-2xl bg-slate-200 py-5">Brands</p>
+                    <div>
+                        <?php
+                        getBrands();
+                        ?>
+                    </div>
+                </div>
             </div>
             <!-- Product cards -->
-            <div class="grid justify-items-stretch grid-cols-3 gap-20">
+            <div class="grid justify-items-stretch grid-cols-3 gap-10">
                 <!-- Example product card -->
                 <?php
                 getProducts();
@@ -121,7 +120,7 @@ include('functions/common_function.php');
 
     <!--  Footer section -->
 
-    <section class="relative mt-52">
+    <section class="relative mt-20">
         <?php
         include('./footer.php');
         ?>

@@ -242,7 +242,7 @@ function product_details()
                     $brand_id = $row_data['brands_id'];
 
                     echo "
-                        <section class='my-32 mx-20 grid grid-cols-2'>
+                        <section class='my-12 mx-20 grid grid-cols-2'>
         <div class=''>
             <div class='w-4/6 carousel rounded-box shadow-2xl shadow-cyan-300'>
                 <div class='carousel-item w-full'>

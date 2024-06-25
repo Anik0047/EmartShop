@@ -31,19 +31,11 @@ include('functions/common_function.php');
     <section>
         <div>
             <!-- Section title -->
-            <p class="text-4xl md:ms-32 md:my-32 md:ps-2 border-black border-b-2 w-40 rounded-bl-lg">Products</p>
+            <p class="text-4xl md:ms-10 md:my-24 md:ps-2 border-black border-b-2 w-40 rounded-bl-lg">Products</p>
         </div>
-        <div class="flex justify-around mx-5 my-10">
+        <div class="flex justify-around my-10">
             <!-- Sidebar with brands and categories -->
-            <div class="w-72 text-center">
-                <div>
-                    <p class="text-2xl bg-slate-200 py-5">Brands</p>
-                    <div>
-                        <?php
-                        getBrands();
-                        ?>
-                    </div>
-                </div>
+            <div class="w-56 text-center">
                 <div>
                     <p class="text-2xl bg-slate-200 py-5">Categories</p>
                     <div>
@@ -52,9 +44,17 @@ include('functions/common_function.php');
                         ?>
                     </div>
                 </div>
+                <div>
+                    <p class="text-2xl bg-slate-200 py-5">Brands</p>
+                    <div>
+                        <?php
+                        getBrands();
+                        ?>
+                    </div>
+                </div>
             </div>
             <!-- Product cards -->
-            <div class="grid justify-items-stretch grid-cols-3 gap-20">
+            <div class="grid justify-items-stretch grid-cols-3 gap-10">
                 <!-- Example product card -->
                 <?php
                 search_product();
@@ -70,7 +70,7 @@ include('functions/common_function.php');
 
     <!--  Footer section -->
 
-    <section class="relative mt-52">
+    <section class="relative mt-20">
         <?php
         include('./footer.php');
         ?>

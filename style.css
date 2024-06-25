@@ -40,16 +40,16 @@ body {
 
 .body {
     position: relative;
-    width: 600px;
+    width: 10%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .swiper {
-    width: 500px;
+    width: 5%;
     height: 520px;
 }
 
