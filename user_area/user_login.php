@@ -11,22 +11,22 @@ if (isset($_POST['user_login'])) {
 
     $select_query = "SELECT * from `user_table` where user_email='$user_email'";
     $result = mysqli_query($conn, $select_query);
-    $rows_data = mysqli_fetch_assoc($result);
-    $hash_password = $rows_data['user_password'];
 
-    $rows_count = mysqli_num_rows($result);
-    $user_ip = getIPAddress();
+    if ($result && mysqli_num_rows($result) > 0) {
+        $rows_data = mysqli_fetch_assoc($result);
+        $hash_password = $rows_data['user_password'];
 
-    $select_cart_query = "SELECT * from `cart_details` where ip_address='$user_ip'";
-    $select_result = mysqli_query($conn, $select_cart_query);
-    $cart_rows_count = mysqli_num_rows($select_result);
+        $user_ip = getIPAddress();
 
-    if ($rows_count > 0) {
+        $select_cart_query = "SELECT * from `cart_details` where ip_address='$user_ip'";
+        $select_result = mysqli_query($conn, $select_cart_query);
+        $cart_rows_count = mysqli_num_rows($select_result);
+
         if (password_verify($user_password, $hash_password)) {
             $_SESSION['user_email'] = $user_email;
             echo "<script>alert('Login Successfully')</script>";
 
-            if ($rows_count == 1 && $cart_rows_count == 0) {
+            if (mysqli_num_rows($result) == 1 && $cart_rows_count == 0) {
                 echo "<script>window.open('user_dashboard.php', '_self')</script>";
             } else {
                 echo "<script>window.open('payment.php', '_self')</script>";
@@ -66,18 +66,21 @@ if (isset($_POST['user_login'])) {
             <div class="custom pt-5">
                 <div class="mb-5">
                     <label class="mb-3 ps-2 font-bold" for="">Email</label>
-                    <input name="user_email" type="text" placeholder="Enter Your Email" class="border-black input input-bordered w-full  " required />
+                    <input name="user_email" type="text" placeholder="Enter Your Email"
+                        class="border-black input input-bordered w-full  " required />
                 </div>
                 <div class="mb-5">
                     <label class="mb-3 ps-2 font-bold" for="">Password</label>
-                    <input name="user_password" type="password" placeholder="Enter Your Password" class="border-black input input-bordered w-full  " required />
+                    <input name="user_password" type="password" placeholder="Enter Your Password"
+                        class="border-black input input-bordered w-full  " required />
                 </div>
                 <div class="text-left">
                     <a class="font-bold link" href="">Forgot Password</a>
                 </div>
                 <div>
                     <input name="user_login" type="submit" class="btn btn-accent font-bold" value="Login">
-                    <p class="font-bold pt-2">Don't have an account? <a class="text-red-700 link" href="user_register.php">Register</a>
+                    <p class="font-bold pt-2">Don't have an account? <a class="text-red-700 link"
+                            href="user_register.php">Register</a>
                     </p>
                     <p class="font-bold"><a href="../index.php">Back</a></p>
                 </div>
